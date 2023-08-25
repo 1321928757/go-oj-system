@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt/v5"
 	"online-practice-system/app/common/request"
 	"online-practice-system/app/common/response"
 	"online-practice-system/app/service"
