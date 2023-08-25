@@ -1,0 +1,439 @@
+[2023-08-19 15:48:58.358]	local.error	bootstrap/DB.go:49	mysql connect failed, err:	{"err": "dial tcp 127.0.0.1:330: connectex: No connection could be made because the target machine actively refused it."}
+[2023-08-19 18:03:27.786]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+/user/login HTTP/1.1
+Host: localhost:8080
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 107
+Content-Type: application/json
+Cookie: mysession=MTY5MDUxMTMxMnxOd3dBTkRKUVFsSTJRMDVGVTA5WFJVVlZXa0pZU2sxT05VTlpSbE5hVVZneVdWWTBTazVSUWtGSVZUSkNNa1kxVEV4Vk5GZGFWMEU9fCbGRxvXitNeoqC5w4b7KYtFikPYWv9UMpaITWFLcJho
+Postman-Token: 8c8e9cc6-1d95-4206-ac45-ccf1821ebe24
+User-Agent: PostmanRuntime/7.32.3
+
+
+runtime error: invalid memory address or nil pointer dereference
+D:/Enviroment/go/src/runtime/panic.go:260 (0x8bb946)
+	panicmem: panic(memoryError)
+D:/Enviroment/go/src/runtime/signal_windows.go:257 (0x8bb916)
+	sigpanic: panicmem()
+D:/Enviroment/go_workpace/pkg/mod/gorm.io/gorm@v1.25.3/gorm.go:396 (0xe2e658)
+	(*DB).getInstance: if db.clone > 0 {
+D:/Enviroment/go_workpace/pkg/mod/gorm.io/gorm@v1.25.3/chainable_api.go:201 (0xe2433b)
+	(*DB).Where: tx = db.getInstance()
+D:/GoLandProjects/online-practice-system/app/service/UserService.go:31 (0xff09d6)
+	(*userService).Login: err = global.App.DB.Where("username = ?", userLogin.Username).First(&user).Error
+D:/GoLandProjects/online-practice-system/app/controller/UserController.go:40 (0xff239d)
+	userController.Login: if err, user := service.UserService.Login(form); err != nil {
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xfdb6a1)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xfdb68c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xfda7c6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xfda7a9)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xfd986a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xfd94f1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xfd901c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xbba1d5)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xbb56f1)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x8d7be0)
+	goexit: BYTE	$0x90	// NOP
+[0m
+[2023-08-19 18:03:33.325]	local.error	bootstrap/DB.go:49	mysql connect failed, err:	{"err": "dial tcp 127.0.0.1:330: connectex: No connection could be made because the target machine actively refused it."}
+
+
+[31m2023/08/19 18:03:57 [Recovery] 2023/08/19 - 18:03:57 panic recovered:
+POST /api/user/login HTTP/1.1
+Host: localhost:8080
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 107
+Content-Type: application/json
+Cookie: mysession=MTY5MDUxMTMxMnxOd3dBTkRKUVFsSTJRMDVGVTA5WFJVVlZXa0pZU2sxT05VTlpSbE5hVVZneVdWWTBTazVSUWtGSVZUSkNNa1kxVEV4Vk5GZGFWMEU9fCbGRxvXitNeoqC5w4b7KYtFikPYWv9UMpaITWFLcJho
+Postman-Token: aadb51ce-fe1f-4586-b17d-4b38ba4afb55
+User-Agent: PostmanRuntime/7.32.3
+
+
+runtime error: invalid memory address or nil pointer dereference
+D:/Enviroment/go/src/runtime/panic.go:260 (0xfab946)
+	panicmem: panic(memoryError)
+D:/Enviroment/go/src/runtime/signal_windows.go:257 (0xfab916)
+	sigpanic: panicmem()
+D:/Enviroment/go_workpace/pkg/mod/gorm.io/gorm@v1.25.3/gorm.go:396 (0x151e658)
+	(*DB).getInstance: if db.clone > 0 {
+D:/Enviroment/go_workpace/pkg/mod/gorm.io/gorm@v1.25.3/chainable_api.go:201 (0x151433b)
+	(*DB).Where: tx = db.getInstance()
+D:/GoLandProjects/online-practice-system/app/service/UserService.go:31 (0x16e0ad6)
+	(*userService).Login: err = global.App.DB.Where("username = ?", userLogin.Username).First(&user).Error
+D:/GoLandProjects/online-practice-system/app/controller/UserController.go:40 (0x16e249d)
+	userController.Login: if err, user := service.UserService.Login(form); err != nil {
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0x16cb7a1)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0x16cb78c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0x16ca8c6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0x16ca8a9)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0x16c996a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0x16c95f1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0x16c911c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0x12aa1d5)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0x12a56f1)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0xfc7be0)
+	goexit: BYTE	$0x90	// NOP
+[0m
+[2023-08-19 18:04:18.839]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 18:04:19.612]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:07:59.110]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:07:59.884]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:08:04.065]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:08:04.788]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:11:37.614]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:11:38.297]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:12:12.883]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:12:13.599]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:12:36.293]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:12:37.053]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:13:35.164]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:13:38.393]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:14:05.425]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:14:08.375]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:15:33.106]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:15:36.267]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:15:51.813]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:15:54.816]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:18:07.954]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:18:10.884]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:18:42.108]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:19:02.933]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:20:02.257]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:20:06.699]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:23:24.550]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:24:27.459]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:24:59.498]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:25:00.880]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:27:00.514]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:28:07.998]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:28:20.026]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:28:23.174]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:28:49.216]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:28:52.278]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:29:05.083]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:29:08.284]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:29:40.412]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:29:43.492]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:30:40.583]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:30:43.944]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:31:23.311]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:31:26.558]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:32:12.805]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:32:15.765]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:32:45.738]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:32:48.670]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:33:44.100]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:33:47.348]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:37:14.832]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:37:18.224]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:40:01.570]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:40:04.621]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:40:39.760]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:40:42.763]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:44:37.109]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:44:37.867]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:46:28.758]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:46:32.012]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:46:37.193]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:46:40.536]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:46:51.467]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:46:54.663]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:51:50.423]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:51:53.811]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+
+
+[31m2023/08/19 20:51:58 [Recovery] 2023/08/19 - 20:51:58 panic recovered:
+POST /api/user/image_upload HTTP/1.1
+Host: localhost:8080
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Authorization: *
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 15199
+Content-Type: multipart/form-data; boundary=--------------------------736247224967013963204189
+Cookie: mysession=MTY5MDUxMTMxMnxOd3dBTkRKUVFsSTJRMDVGVTA5WFJVVlZXa0pZU2sxT05VTlpSbE5hVVZneVdWWTBTazVSUWtGSVZUSkNNa1kxVEV4Vk5GZGFWMEU9fCbGRxvXitNeoqC5w4b7KYtFikPYWv9UMpaITWFLcJho
+Postman-Token: 730c3510-8cb3-4563-b471-546418d6c5a0
+User-Agent: PostmanRuntime/7.32.3
+
+
+implement me
+D:/GoLandProjects/online-practice-system/utils/storage/cos/Cos.go:108 (0xca1977)
+	cosDriver.Url: panic("implement me")
+D:/GoLandProjects/online-practice-system/app/service/MediaService.go:84 (0xc45f4d)
+	(*mediaService).SaveImage: result = outPut{int64(image.ID.ID), key, fileDriver.Url(key)}
+D:/GoLandProjects/online-practice-system/app/controller/UploadController.go:22 (0xc47b44)
+	uploadController.ImageUpload: outPut, err := service.MediaService.SaveImage(form)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xc310e1)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xc310cc)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xc30206)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xc301e9)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xc2f2aa)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xc2ef31)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xc2ea5c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0x7fa215)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0x7f5731)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x4f7ca0)
+	goexit: BYTE	$0x90	// NOP
+[0m
+[2023-08-19 20:53:21.940]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:53:25.023]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 20:55:47.463]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:55:48.255]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+
+
+[31m2023/08/19 20:55:57 [Recovery] 2023/08/19 - 20:55:57 panic recovered:
+POST /api/user/image_upload HTTP/1.1
+Host: localhost:8080
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Authorization: *
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 15199
+Content-Type: multipart/form-data; boundary=--------------------------620644741069987913918972
+Cookie: mysession=MTY5MDUxMTMxMnxOd3dBTkRKUVFsSTJRMDVGVTA5WFJVVlZXa0pZU2sxT05VTlpSbE5hVVZneVdWWTBTazVSUWtGSVZUSkNNa1kxVEV4Vk5GZGFWMEU9fCbGRxvXitNeoqC5w4b7KYtFikPYWv9UMpaITWFLcJho
+Postman-Token: cc568391-5d36-4408-b40c-ec5b7cc83697
+User-Agent: PostmanRuntime/7.32.3
+
+
+implement me
+D:/GoLandProjects/online-practice-system/utils/storage/cos/Cos.go:108 (0x10c1777)
+	cosDriver.Url: panic("implement me")
+D:/GoLandProjects/online-practice-system/app/service/MediaService.go:84 (0x1065d4d)
+	(*mediaService).SaveImage: result = outPut{int64(image.ID.ID), key, fileDriver.Url(key)}
+D:/GoLandProjects/online-practice-system/app/controller/UploadController.go:22 (0x1067944)
+	uploadController.ImageUpload: outPut, err := service.MediaService.SaveImage(form)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0x10510e1)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0x10510cc)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0x1050206)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0x10501e9)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0x104f2aa)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0x104ef31)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0x104ea5c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xc1a215)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xc15731)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x917ca0)
+	goexit: BYTE	$0x90	// NOP
+[0m
+[2023-08-19 20:56:29.449]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 20:56:32.564]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+
+
+[31m2023/08/19 20:56:35 [Recovery] 2023/08/19 - 20:56:35 panic recovered:
+POST /api/user/image_upload HTTP/1.1
+Host: localhost:8080
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Authorization: *
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 15199
+Content-Type: multipart/form-data; boundary=--------------------------609928974744111992730804
+Cookie: mysession=MTY5MDUxMTMxMnxOd3dBTkRKUVFsSTJRMDVGVTA5WFJVVlZXa0pZU2sxT05VTlpSbE5hVVZneVdWWTBTazVSUWtGSVZUSkNNa1kxVEV4Vk5GZGFWMEU9fCbGRxvXitNeoqC5w4b7KYtFikPYWv9UMpaITWFLcJho
+Postman-Token: d23f6def-f182-4365-9bfc-50a38004b2b7
+User-Agent: PostmanRuntime/7.32.3
+
+
+implement me
+D:/GoLandProjects/online-practice-system/utils/storage/cos/Cos.go:106 (0xd81597)
+	cosDriver.Url: panic("implement me")
+D:/GoLandProjects/online-practice-system/app/service/MediaService.go:82 (0xd25c0a)
+	(*mediaService).SaveImage: result = outPut{int64(image.ID.ID), key, fileDriver.Url(key)}
+D:/GoLandProjects/online-practice-system/app/controller/UploadController.go:22 (0xd27804)
+	uploadController.ImageUpload: outPut, err := service.MediaService.SaveImage(form)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xd11021)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xd1100c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xd10146)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xd10129)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xd0f1ea)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xd0ee71)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xd0e99c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0x8da155)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0x8d5671)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x5d7be0)
+	goexit: BYTE	$0x90	// NOP
+[0m
+[2023-08-19 21:00:31.703]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 21:00:35.014]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+
+
+[31m2023/08/19 21:00:36 [Recovery] 2023/08/19 - 21:00:36 panic recovered:
+POST /api/user/image_upload HTTP/1.1
+Host: localhost:8080
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Authorization: *
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 15199
+Content-Type: multipart/form-data; boundary=--------------------------894064700990353486264242
+Cookie: mysession=MTY5MDUxMTMxMnxOd3dBTkRKUVFsSTJRMDVGVTA5WFJVVlZXa0pZU2sxT05VTlpSbE5hVVZneVdWWTBTazVSUWtGSVZUSkNNa1kxVEV4Vk5GZGFWMEU9fCbGRxvXitNeoqC5w4b7KYtFikPYWv9UMpaITWFLcJho
+Postman-Token: 0360c267-42c8-486e-b964-ea8c90b24163
+User-Agent: PostmanRuntime/7.32.3
+
+
+implement me
+D:/GoLandProjects/online-practice-system/utils/storage/cos/Cos.go:106 (0xf71697)
+	cosDriver.Url: panic("implement me")
+D:/GoLandProjects/online-practice-system/app/service/MediaService.go:89 (0xf15d08)
+	(*mediaService).SaveImage: result = outPut{int64(image.ID.ID), key, fileDriver.Url(key)}
+D:/GoLandProjects/online-practice-system/app/controller/UploadController.go:22 (0xf17904)
+	uploadController.ImageUpload: outPut, err := service.MediaService.SaveImage(form)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf01021)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf0100c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf00146)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf00129)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xeff1ea)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xefee71)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xefe99c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xaca155)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xac5671)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x7c7be0)
+	goexit: BYTE	$0x90	// NOP
+[0m
+[2023-08-19 21:04:09.551]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 21:04:12.825]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 21:07:02.533]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 21:07:05.961]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 21:13:19.642]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 21:13:20.465]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 21:57:35.380]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 21:57:38.899]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 21:59:14.696]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 21:59:17.720]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 22:04:46.228]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 22:04:49.551]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 22:05:28.987]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 22:05:29.671]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 22:06:52.349]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 22:06:55.739]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 22:10:19.617]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-19 22:10:20.360]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-19 22:12:52.247]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 15:15:12.750]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 16:06:18.126]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 16:06:22.251]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 16:07:17.240]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 16:07:50.051]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 16:24:03.286]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 16:27:46.932]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 16:29:33.785]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 16:29:36.840]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 16:32:10.935]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 16:32:11.629]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 16:32:44.979]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 16:32:45.693]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 16:33:32.162]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 16:33:32.851]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 16:34:08.678]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 16:34:09.394]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 18:18:52.854]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 18:19:40.952]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 20:34:51.538]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 20:34:54.747]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 20:35:06.473]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 20:35:07.181]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 20:37:03.813]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 20:37:06.876]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 20:47:24.452]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 20:47:25.179]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 20:50:43.850]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 20:50:47.044]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 21:10:24.555]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 21:10:28.403]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 21:23:35.559]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 21:23:39.211]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 21:23:39.241]	local.error	bootstrap/DB.go:73	migrate table failed	{"err": "Error 1406 (22001): Data too long for column 'src' at row 10"}
+[2023-08-20 21:26:28.197]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 21:26:52.604]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-20 21:26:53.367]	local.info	bootstrap/DB.go:52	mysql数据库连接成功~~~~~
+[2023-08-20 21:27:53.452]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-21 15:43:27.930]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-21 20:49:29.489]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 14:57:45.815]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:08:23.398]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:09:00.929]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:12:04.438]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:12:08.010]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:13:02.706]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:13:06.225]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:15:37.941]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:15:41.563]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:17:07.468]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:17:10.946]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:18:21.637]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:18:25.093]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:18:57.475]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:19:00.723]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:19:19.417]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:19:22.526]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:20:50.798]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:20:54.494]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:21:57.499]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:22:00.912]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:26:12.290]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-22 15:26:15.921]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-22 15:42:06.395]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-25 18:40:17.093]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 18:40:57.166]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~

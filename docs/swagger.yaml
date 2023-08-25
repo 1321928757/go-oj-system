@@ -1,0 +1,143 @@
+definitions:
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  model.User:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      updated_at:
+        type: string
+      username:
+        type: string
+    type: object
+  service.TokenOutPut:
+    properties:
+      access_token:
+        description: token
+        type: string
+      expires_in:
+        description: token 有效期（秒）
+        type: integer
+      token_type:
+        description: token 类型
+        type: string
+    type: object
+  service.outPut:
+    properties:
+      id:
+        type: integer
+      path:
+        type: string
+      url:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: goweb基础脚手架API文档
+  title: goweb基础脚手架
+  version: "1"
+paths:
+  /image_get_url/{id}:
+    get:
+      parameters:
+      - description: 图片id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: url
+          schema:
+            type: string
+      summary: 根据id获取图片url
+      tags:
+      - 用户公有方法
+  /image_upload:
+    post:
+      parameters:
+      - description: 图片
+        in: formData
+        name: image
+        required: true
+        type: file
+      - description: 业务参数
+        in: formData
+        name: business
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.outPut'
+      summary: 上传图片
+      tags:
+      - 用户公有方法
+  /login:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.TokenOutPut'
+      summary: 用户登录
+      tags:
+      - 公共方法
+  /logout:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 用户登出
+      tags:
+      - 公共方法
+  /register:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      summary: 用户注册
+      tags:
+      - 公共方法
+  /userInfo:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      security:
+      - ApiKeyAuth: []
+      summary: 获取用户信息
+      tags:
+      - 公共方法
+swagger: "2.0"
