@@ -8,7 +8,7 @@ import (
 // @title goweb基础脚手架
 // @description goweb基础脚手架API文档
 // @version 1
-// @author 刘仕杰
+//
 //go:generate swag init --parseDependency --parseInternal
 func main() {
 	//  初始化yaml配置文件

@@ -1,19 +1,16 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "goweb基础脚手架API文档",
-        "title": "goweb基础脚手架",
-        "contact": {},
-        "version": "1"
+        "contact": {}
     },
     "paths": {
-        "/image_get_url/{id}": {
+        "/api/user/image_get_url/{id}": {
             "get": {
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "用户公有方法"
+                    "普通用户方法"
                 ],
                 "summary": "根据id获取图片url",
                 "parameters": [
@@ -35,13 +32,13 @@
                 }
             }
         },
-        "/image_upload": {
+        "/api/user/image_upload": {
             "post": {
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "用户公有方法"
+                    "普通用户方法"
                 ],
                 "summary": "上传图片",
                 "parameters": [
@@ -54,7 +51,7 @@
                     },
                     {
                         "type": "string",
-                        "description": "业务参数",
+                        "description": "业务参数(影响图片存储路径))",
                         "name": "business",
                         "in": "formData",
                         "required": true
@@ -70,7 +67,7 @@
                 }
             }
         },
-        "/login": {
+        "/api/user/login": {
             "post": {
                 "produces": [
                     "application/json"
@@ -89,7 +86,7 @@
                 }
             }
         },
-        "/logout": {
+        "/api/user/logout": {
             "get": {
                 "security": [
                     {
@@ -100,7 +97,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "公共方法"
+                    "普通用户方法"
                 ],
                 "summary": "用户登出",
                 "responses": {
@@ -113,7 +110,7 @@
                 }
             }
         },
-        "/register": {
+        "/api/user/register": {
             "post": {
                 "produces": [
                     "application/json"
@@ -132,7 +129,7 @@
                 }
             }
         },
-        "/userInfo": {
+        "/api/user/userInfo": {
             "get": {
                 "security": [
                     {
@@ -143,7 +140,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "公共方法"
+                    "普通用户方法"
                 ],
                 "summary": "获取用户信息",
                 "responses": {

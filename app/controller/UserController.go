@@ -18,7 +18,7 @@ var UserController = new(userController)
 // @Produce json
 // @Summary 用户注册
 // @Success 200 {object}  model.User
-// @Router /register [post]
+// @Router /api/user/register [post]
 func (userController) Register(c *gin.Context) {
 	var form request.UserRegister
 	err := c.ShouldBindJSON(&form)
@@ -40,7 +40,7 @@ func (userController) Register(c *gin.Context) {
 // @Produce json
 // @Summary 用户登录
 // @Success 200 {object} service.TokenOutPut
-// @Router /login [post]
+// @Router /api/user/login [post]
 func (userController) Login(c *gin.Context) {
 	var form request.UserLogin
 	if err := c.ShouldBindJSON(&form); err != nil {
@@ -61,12 +61,12 @@ func (userController) Login(c *gin.Context) {
 }
 
 // GetUserInfo
-// @Tags 公共方法
+// @Tags 普通用户方法
 // @Produce json
 // @Summary 获取用户信息
 // @Security ApiKeyAuth
 // @Success 200 {object}  model.User
-// @Router /userInfo [get]
+// @Router /api/user/userInfo [get]
 func (userController) GetUserInfo(c *gin.Context) {
 	id := c.GetString("id") // 从 JWTAuth 中间件中获取从token中读取到的id
 	err, user := service.UserService.GetUserInfoByid(id)
@@ -78,12 +78,12 @@ func (userController) GetUserInfo(c *gin.Context) {
 }
 
 // UserLogout
-// @Tags 公共方法
+// @Tags 普通用户方法
 // @Produce json
 // @Summary 用户登出
 // @Security ApiKeyAuth
 // @Success 200 {string} string	"ok"
-// @Router /logout [get]
+// @Router /api/user/logout [get]
 func (userController) UserLogout(c *gin.Context) {
 	//  将token加入黑名单
 	err := service.JwtService.JoinBlackList(c.Keys["token"].(*jwt.Token))

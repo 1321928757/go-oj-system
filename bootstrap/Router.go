@@ -3,9 +3,12 @@ package bootstrap
 import (
 	"context"
 	"github.com/gin-gonic/gin"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 	"log"
 	"net/http"
 	"online-practice-system/app/middleware"
+	_ "online-practice-system/docs"
 	"online-practice-system/global"
 	"online-practice-system/routes"
 	"os"
@@ -29,6 +32,9 @@ func setupRouter() *gin.Engine {
 	//router.Static("/fonts", "./static/dist/fonts")
 	//router.Static("/img", "./static/dist/img")
 	//router.StaticFile("/favicon.ico", "./static/dist/favicon.ico")
+
+	// Swagger 配置
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	// 注册 api 分组路由
 	apiGroup := router.Group("/api")

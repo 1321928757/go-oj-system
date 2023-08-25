@@ -17,13 +17,13 @@ var UploadController = new(uploadController)
 var ImageMaxSize int64 = 1024 * 1024 * 2 // 图片文件上传最大大小，默认2MB
 
 // ImageUpload 上传图片
-// @Tags 用户公有方法
+// @Tags 普通用户方法
 // @Produce json
 // @Summary 上传图片
 // @Param image formData file true "图片"
-// @Param business formData string true "业务参数"
+// @Param business formData string true "业务参数(影响图片存储路径))"
 // @Success 200 {object}  service.outPut
-// @Router /image_upload [post]
+// @Router /api/user/image_upload [post]
 func (uploadController) ImageUpload(c *gin.Context) {
 	// 参数校验
 	var form request.ImageUpload
@@ -55,12 +55,12 @@ func (uploadController) ImageUpload(c *gin.Context) {
 }
 
 // GetUrlById 根据id获取图片url
-// @Tags 用户公有方法
+// @Tags 普通用户方法
 // @Produce json
 // @Summary 根据id获取图片url
 // @Param id path int true "图片id"
-// @Success 200 {string} string	"url"
-// @Router /image_get_url/{id} [get]
+// @Success 200 {string} string "url"
+// @Router /api/user/image_get_url/{id} [get]
 func (uploadController) GetUrlById(c *gin.Context) {
 	//获取参数id，并将id转换成int64类型
 	id, err := strconv.ParseInt(c.Param("id"), 10, 64)

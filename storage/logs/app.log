@@ -437,3 +437,421 @@ D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x7c7be0)
 [2023-08-22 15:42:06.395]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
 [2023-08-25 18:40:17.093]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
 [2023-08-25 18:40:57.166]	local.fatal	bootstrap/Router.go:72	服务器顺利关闭~~~
+[2023-08-25 20:27:00.666]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 20:34:53.220]	local.fatal	bootstrap/Router.go:77	服务器顺利关闭~~~
+[2023-08-25 20:34:54.104]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 20:35:02.804]	local.fatal	bootstrap/Router.go:77	服务器顺利关闭~~~
+[2023-08-25 20:35:05.597]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 20:37:29.232]	local.fatal	bootstrap/Router.go:77	服务器顺利关闭~~~
+[2023-08-25 20:37:32.401]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 20:41:46.412]	local.fatal	bootstrap/Router.go:79	服务器顺利关闭~~~
+[2023-08-25 20:41:48.435]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 20:43:55.316]	local.fatal	bootstrap/Router.go:78	服务器顺利关闭~~~
+[2023-08-25 20:43:57.115]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+
+
+[31m2023/08/25 20:44:00 [Recovery] 2023/08/25 - 20:44:00 panic recovered:
+GET /swagger/doc.json HTTP/1.1
+Host: localhost:8080
+Accept: application/json,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: Pycharm-69b09fd4=c1291219-4839-4e0d-9f57-906997f6027b; Hm_lvt_fadc1bd5db1a1d6f581df60a1807f8ab=1680610672; Hm_lpvt_fadc1bd5db1a1d6f581df60a1807f8ab=1681809775; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQyMGUxM2FhLTAzMjQtNGZhMS04YTU5LWFhZGM3NGI0YTc5NCJ9._70bu2HhfwWFLFqJRoeubnOWIIac3klRDIbdssFbKLrodd2rg4s6f22BE7-JVGY5gUxvVBLmkNeYjENgJrFJ1A; sidebarStatus=0; _ga=GA1.1.456468880.1691991482; _ga_TWD3SKTWW4=GS1.1.1691991482.1.1.1691991592.0.0.0
+Referer: http://localhost:8080/swagger/index.html
+Sec-Ch-Ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54
+
+
+no swag has yet been registered
+D:/Enviroment/go_workpace/pkg/mod/github.com/swaggo/gin-swagger@v1.3.0/swagger.go:94 (0x1037f84)
+	CustomWrapHandler.func1: panic(err)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf86d81)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf86d6c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf85ea6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf85e89)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf84f4a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xf84bd1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xf846fc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xb49475)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xb44991)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x837c20)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2023/08/25 20:44:01 [Recovery] 2023/08/25 - 20:44:01 panic recovered:
+GET /swagger/doc.json HTTP/1.1
+Host: localhost:8080
+Accept: application/json,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: Pycharm-69b09fd4=c1291219-4839-4e0d-9f57-906997f6027b; Hm_lvt_fadc1bd5db1a1d6f581df60a1807f8ab=1680610672; Hm_lpvt_fadc1bd5db1a1d6f581df60a1807f8ab=1681809775; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQyMGUxM2FhLTAzMjQtNGZhMS04YTU5LWFhZGM3NGI0YTc5NCJ9._70bu2HhfwWFLFqJRoeubnOWIIac3klRDIbdssFbKLrodd2rg4s6f22BE7-JVGY5gUxvVBLmkNeYjENgJrFJ1A; sidebarStatus=0; _ga=GA1.1.456468880.1691991482; _ga_TWD3SKTWW4=GS1.1.1691991482.1.1.1691991592.0.0.0
+Referer: http://localhost:8080/swagger/index.html
+Sec-Ch-Ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54
+
+
+no swag has yet been registered
+D:/Enviroment/go_workpace/pkg/mod/github.com/swaggo/gin-swagger@v1.3.0/swagger.go:94 (0x1037f84)
+	CustomWrapHandler.func1: panic(err)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf86d81)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf86d6c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf85ea6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf85e89)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf84f4a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xf84bd1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xf846fc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xb49475)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xb44991)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x837c20)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2023/08/25 20:44:02 [Recovery] 2023/08/25 - 20:44:02 panic recovered:
+GET /swagger/doc.json HTTP/1.1
+Host: localhost:8080
+Accept: application/json,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: Pycharm-69b09fd4=c1291219-4839-4e0d-9f57-906997f6027b; Hm_lvt_fadc1bd5db1a1d6f581df60a1807f8ab=1680610672; Hm_lpvt_fadc1bd5db1a1d6f581df60a1807f8ab=1681809775; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQyMGUxM2FhLTAzMjQtNGZhMS04YTU5LWFhZGM3NGI0YTc5NCJ9._70bu2HhfwWFLFqJRoeubnOWIIac3klRDIbdssFbKLrodd2rg4s6f22BE7-JVGY5gUxvVBLmkNeYjENgJrFJ1A; sidebarStatus=0; _ga=GA1.1.456468880.1691991482; _ga_TWD3SKTWW4=GS1.1.1691991482.1.1.1691991592.0.0.0
+Referer: http://localhost:8080/swagger/index.html
+Sec-Ch-Ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54
+
+
+no swag has yet been registered
+D:/Enviroment/go_workpace/pkg/mod/github.com/swaggo/gin-swagger@v1.3.0/swagger.go:94 (0x1037f84)
+	CustomWrapHandler.func1: panic(err)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf86d81)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf86d6c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf85ea6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf85e89)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf84f4a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xf84bd1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xf846fc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xb49475)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xb44991)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x837c20)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2023/08/25 20:44:02 [Recovery] 2023/08/25 - 20:44:02 panic recovered:
+GET /swagger/doc.json HTTP/1.1
+Host: localhost:8080
+Accept: application/json,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: Pycharm-69b09fd4=c1291219-4839-4e0d-9f57-906997f6027b; Hm_lvt_fadc1bd5db1a1d6f581df60a1807f8ab=1680610672; Hm_lpvt_fadc1bd5db1a1d6f581df60a1807f8ab=1681809775; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQyMGUxM2FhLTAzMjQtNGZhMS04YTU5LWFhZGM3NGI0YTc5NCJ9._70bu2HhfwWFLFqJRoeubnOWIIac3klRDIbdssFbKLrodd2rg4s6f22BE7-JVGY5gUxvVBLmkNeYjENgJrFJ1A; sidebarStatus=0; _ga=GA1.1.456468880.1691991482; _ga_TWD3SKTWW4=GS1.1.1691991482.1.1.1691991592.0.0.0
+Referer: http://localhost:8080/swagger/index.html
+Sec-Ch-Ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54
+
+
+no swag has yet been registered
+D:/Enviroment/go_workpace/pkg/mod/github.com/swaggo/gin-swagger@v1.3.0/swagger.go:94 (0x1037f84)
+	CustomWrapHandler.func1: panic(err)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf86d81)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf86d6c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf85ea6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf85e89)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf84f4a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xf84bd1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xf846fc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xb49475)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xb44991)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x837c20)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2023/08/25 20:44:03 [Recovery] 2023/08/25 - 20:44:03 panic recovered:
+GET /swagger/doc.json HTTP/1.1
+Host: localhost:8080
+Accept: application/json,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: Pycharm-69b09fd4=c1291219-4839-4e0d-9f57-906997f6027b; Hm_lvt_fadc1bd5db1a1d6f581df60a1807f8ab=1680610672; Hm_lpvt_fadc1bd5db1a1d6f581df60a1807f8ab=1681809775; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQyMGUxM2FhLTAzMjQtNGZhMS04YTU5LWFhZGM3NGI0YTc5NCJ9._70bu2HhfwWFLFqJRoeubnOWIIac3klRDIbdssFbKLrodd2rg4s6f22BE7-JVGY5gUxvVBLmkNeYjENgJrFJ1A; sidebarStatus=0; _ga=GA1.1.456468880.1691991482; _ga_TWD3SKTWW4=GS1.1.1691991482.1.1.1691991592.0.0.0
+Referer: http://localhost:8080/swagger/index.html
+Sec-Ch-Ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54
+
+
+no swag has yet been registered
+D:/Enviroment/go_workpace/pkg/mod/github.com/swaggo/gin-swagger@v1.3.0/swagger.go:94 (0x1037f84)
+	CustomWrapHandler.func1: panic(err)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf86d81)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf86d6c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf85ea6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf85e89)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf84f4a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xf84bd1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xf846fc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xb49475)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xb44991)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x837c20)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2023/08/25 20:44:04 [Recovery] 2023/08/25 - 20:44:04 panic recovered:
+GET /swagger/doc.json HTTP/1.1
+Host: localhost:8080
+Accept: application/json,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: Pycharm-69b09fd4=c1291219-4839-4e0d-9f57-906997f6027b; Hm_lvt_fadc1bd5db1a1d6f581df60a1807f8ab=1680610672; Hm_lpvt_fadc1bd5db1a1d6f581df60a1807f8ab=1681809775; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQyMGUxM2FhLTAzMjQtNGZhMS04YTU5LWFhZGM3NGI0YTc5NCJ9._70bu2HhfwWFLFqJRoeubnOWIIac3klRDIbdssFbKLrodd2rg4s6f22BE7-JVGY5gUxvVBLmkNeYjENgJrFJ1A; sidebarStatus=0; _ga=GA1.1.456468880.1691991482; _ga_TWD3SKTWW4=GS1.1.1691991482.1.1.1691991592.0.0.0
+Referer: http://localhost:8080/swagger/index.html
+Sec-Ch-Ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54
+
+
+no swag has yet been registered
+D:/Enviroment/go_workpace/pkg/mod/github.com/swaggo/gin-swagger@v1.3.0/swagger.go:94 (0x1037f84)
+	CustomWrapHandler.func1: panic(err)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf86d81)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf86d6c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf85ea6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf85e89)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf84f4a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xf84bd1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xf846fc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xb49475)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xb44991)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x837c20)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2023/08/25 20:44:06 [Recovery] 2023/08/25 - 20:44:06 panic recovered:
+GET /swagger/doc.json HTTP/1.1
+Host: localhost:8080
+Accept: application/json,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: Pycharm-69b09fd4=c1291219-4839-4e0d-9f57-906997f6027b; Hm_lvt_fadc1bd5db1a1d6f581df60a1807f8ab=1680610672; Hm_lpvt_fadc1bd5db1a1d6f581df60a1807f8ab=1681809775; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQyMGUxM2FhLTAzMjQtNGZhMS04YTU5LWFhZGM3NGI0YTc5NCJ9._70bu2HhfwWFLFqJRoeubnOWIIac3klRDIbdssFbKLrodd2rg4s6f22BE7-JVGY5gUxvVBLmkNeYjENgJrFJ1A; sidebarStatus=0; _ga=GA1.1.456468880.1691991482; _ga_TWD3SKTWW4=GS1.1.1691991482.1.1.1691991592.0.0.0
+Referer: http://localhost:8080/swagger/index.html
+Sec-Ch-Ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54
+
+
+no swag has yet been registered
+D:/Enviroment/go_workpace/pkg/mod/github.com/swaggo/gin-swagger@v1.3.0/swagger.go:94 (0x1037f84)
+	CustomWrapHandler.func1: panic(err)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf86d81)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf86d6c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf85ea6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf85e89)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf84f4a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xf84bd1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xf846fc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xb49475)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xb44991)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x837c20)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2023/08/25 20:44:06 [Recovery] 2023/08/25 - 20:44:06 panic recovered:
+GET /swagger/doc.json HTTP/1.1
+Host: localhost:8080
+Accept: application/json,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: Pycharm-69b09fd4=c1291219-4839-4e0d-9f57-906997f6027b; Hm_lvt_fadc1bd5db1a1d6f581df60a1807f8ab=1680610672; Hm_lpvt_fadc1bd5db1a1d6f581df60a1807f8ab=1681809775; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQyMGUxM2FhLTAzMjQtNGZhMS04YTU5LWFhZGM3NGI0YTc5NCJ9._70bu2HhfwWFLFqJRoeubnOWIIac3klRDIbdssFbKLrodd2rg4s6f22BE7-JVGY5gUxvVBLmkNeYjENgJrFJ1A; sidebarStatus=0; _ga=GA1.1.456468880.1691991482; _ga_TWD3SKTWW4=GS1.1.1691991482.1.1.1691991592.0.0.0
+Referer: http://localhost:8080/swagger/index.html
+Sec-Ch-Ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54
+
+
+no swag has yet been registered
+D:/Enviroment/go_workpace/pkg/mod/github.com/swaggo/gin-swagger@v1.3.0/swagger.go:94 (0x1037f84)
+	CustomWrapHandler.func1: panic(err)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf86d81)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf86d6c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf85ea6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf85e89)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf84f4a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xf84bd1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xf846fc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xb49475)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xb44991)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x837c20)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2023/08/25 20:44:07 [Recovery] 2023/08/25 - 20:44:07 panic recovered:
+GET /swagger/doc.json HTTP/1.1
+Host: localhost:8080
+Accept: application/json,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: Pycharm-69b09fd4=c1291219-4839-4e0d-9f57-906997f6027b; Hm_lvt_fadc1bd5db1a1d6f581df60a1807f8ab=1680610672; Hm_lpvt_fadc1bd5db1a1d6f581df60a1807f8ab=1681809775; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQyMGUxM2FhLTAzMjQtNGZhMS04YTU5LWFhZGM3NGI0YTc5NCJ9._70bu2HhfwWFLFqJRoeubnOWIIac3klRDIbdssFbKLrodd2rg4s6f22BE7-JVGY5gUxvVBLmkNeYjENgJrFJ1A; sidebarStatus=0; _ga=GA1.1.456468880.1691991482; _ga_TWD3SKTWW4=GS1.1.1691991482.1.1.1691991592.0.0.0
+Referer: http://localhost:8080/swagger/index.html
+Sec-Ch-Ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54
+
+
+no swag has yet been registered
+D:/Enviroment/go_workpace/pkg/mod/github.com/swaggo/gin-swagger@v1.3.0/swagger.go:94 (0x1037f84)
+	CustomWrapHandler.func1: panic(err)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf86d81)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xf86d6c)
+	CustomRecoveryWithWriter.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf85ea6)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xf85e89)
+	LoggerWithConfig.func1: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xf84f4a)
+	(*Context).Next: c.handlers[c.index](c)
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xf84bd1)
+	(*Engine).handleHTTPRequest: c.Next()
+D:/Enviroment/go_workpace/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xf846fc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+D:/Enviroment/go/src/net/http/server.go:2936 (0xb49475)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+D:/Enviroment/go/src/net/http/server.go:1995 (0xb44991)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+D:/Enviroment/go/src/runtime/asm_amd64.s:1598 (0x837c20)
+	goexit: BYTE	$0x90	// NOP
+[0m
+[2023-08-25 20:44:14.090]	local.fatal	bootstrap/Router.go:77	服务器顺利关闭~~~
+[2023-08-25 20:44:16.008]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 21:28:51.962]	local.fatal	bootstrap/Router.go:78	服务器顺利关闭~~~
+[2023-08-25 21:28:54.046]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 21:52:23.063]	local.fatal	bootstrap/Router.go:78	服务器顺利关闭~~~
+[2023-08-25 21:52:25.113]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 22:12:56.385]	local.fatal	bootstrap/Router.go:78	服务器顺利关闭~~~
+[2023-08-25 22:13:02.653]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 22:15:35.165]	local.fatal	bootstrap/Router.go:78	服务器顺利关闭~~~
+[2023-08-25 22:15:37.231]	local.info	bootstrap/DB.go:53	mysql数据库连接成功~~~~~
+[2023-08-25 22:16:40.140]	local.fatal	bootstrap/Router.go:78	服务器顺利关闭~~~

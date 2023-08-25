@@ -43,11 +43,8 @@ definitions:
     type: object
 info:
   contact: {}
-  description: goweb基础脚手架API文档
-  title: goweb基础脚手架
-  version: "1"
 paths:
-  /image_get_url/{id}:
+  /api/user/image_get_url/{id}:
     get:
       parameters:
       - description: 图片id
@@ -64,8 +61,8 @@ paths:
             type: string
       summary: 根据id获取图片url
       tags:
-      - 用户公有方法
-  /image_upload:
+      - 普通用户方法
+  /api/user/image_upload:
     post:
       parameters:
       - description: 图片
@@ -73,7 +70,7 @@ paths:
         name: image
         required: true
         type: file
-      - description: 业务参数
+      - description: 业务参数(影响图片存储路径))
         in: formData
         name: business
         required: true
@@ -87,8 +84,8 @@ paths:
             $ref: '#/definitions/service.outPut'
       summary: 上传图片
       tags:
-      - 用户公有方法
-  /login:
+      - 普通用户方法
+  /api/user/login:
     post:
       produces:
       - application/json
@@ -100,7 +97,7 @@ paths:
       summary: 用户登录
       tags:
       - 公共方法
-  /logout:
+  /api/user/logout:
     get:
       produces:
       - application/json
@@ -113,8 +110,8 @@ paths:
       - ApiKeyAuth: []
       summary: 用户登出
       tags:
-      - 公共方法
-  /register:
+      - 普通用户方法
+  /api/user/register:
     post:
       produces:
       - application/json
@@ -126,7 +123,7 @@ paths:
       summary: 用户注册
       tags:
       - 公共方法
-  /userInfo:
+  /api/user/userInfo:
     get:
       produces:
       - application/json
@@ -139,5 +136,5 @@ paths:
       - ApiKeyAuth: []
       summary: 获取用户信息
       tags:
-      - 公共方法
+      - 普通用户方法
 swagger: "2.0"
