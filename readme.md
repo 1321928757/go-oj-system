@@ -1,0 +1,1 @@
+使用的技术：gin，gorm，go-redis,go, golang-jwt,viper, zap, jordan-wright/email, validator
