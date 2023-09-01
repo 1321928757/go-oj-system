@@ -23,3 +23,22 @@ func SetUserGroupRoutes(router *gin.RouterGroup) {
 		authRouter.GET("/image_get_url/:id", controller.UploadController.GetUrlById)
 	}
 }
+
+// SetProblemGroupRoutes 定义 Problem 分组路由
+func SetProblemGroupRoutes(router *gin.RouterGroup) {
+	problemGroup := router.Group("/problem")
+	problemGroup.GET("/list", controller.ProblemController.GetProblemPageList)
+	problemGroup.GET("/detail", controller.ProblemController.GetProblemDetailById)
+}
+
+// SetSubmitGroupRoutes 定义 Submit 分组路由
+func SetSubmitGroupRoutes(router *gin.RouterGroup) {
+	submitGroup := router.Group("/submit")
+	submitGroup.GET("/list", controller.SubmitController.GetSubmitPageList)
+}
+
+// SetCaptchaGroupRoutes 定义 Captcha验证码相关分组路由
+func SetCaptchaGroupRoutes(router *gin.RouterGroup) {
+	submitGroup := router.Group("/captcha")
+	submitGroup.POST("/send_email", controller.CaptchaController.SendMailCode)
+}

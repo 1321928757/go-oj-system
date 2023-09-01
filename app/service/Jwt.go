@@ -60,6 +60,18 @@ func (jwtService *jwtService) CreateToken(GuardName string, user JwtUser) (token
 	return
 }
 
+// ParseToken 解析 Token
+func (jwtService *jwtService) ParseToken(tokenStr string) (token *jwt.Token, claims *CustomClaims, err error) {
+	token, err = jwt.ParseWithClaims(tokenStr, &CustomClaims{}, func(token *jwt.Token) (interface{}, error) {
+		return []byte(global.App.Config.Jwt.Secret), nil
+	})
+	if err != nil {
+		return
+	}
+	claims = token.Claims.(*CustomClaims)
+	return
+}
+
 // 获取黑名单缓存 key
 func (jwtService *jwtService) getBlackListKey(tokenStr string) string {
 	return "jwt_black_list:" + utils.MD5([]byte(tokenStr))

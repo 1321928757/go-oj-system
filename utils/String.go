@@ -2,16 +2,17 @@ package utils
 
 import (
 	"math/rand"
-	"time"
+	"strings"
 )
 
-// RandString 生成随机字符串，可用来作为标识符
-func RandString(len int) string {
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-	bytes := make([]byte, len)
-	for i := 0; i < len; i++ {
-		b := r.Intn(26) + 65
-		bytes[i] = byte(b)
+const charset = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+// 生成指定长度的随机字符串
+func RandString(n int) string {
+	sb := strings.Builder{}
+	sb.Grow(n)
+	for i := 0; i < n; i++ {
+		sb.WriteByte(charset[rand.Intn(len(charset))])
 	}
-	return string(bytes)
+	return sb.String()
 }

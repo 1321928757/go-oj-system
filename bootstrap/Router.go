@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"go.uber.org/zap"
 	"log"
 	"net/http"
 	"online-practice-system/app/middleware"
@@ -23,7 +24,7 @@ func setupRouter() *gin.Engine {
 		gin.SetMode(gin.ReleaseMode)
 	}
 	router := gin.New()
-	router.Use(gin.Logger(), middleware.Cors(), middleware.CustomRecovery())
+	router.Use(middleware.Cors(), gin.Logger(), middleware.CustomRecovery())
 
 	// 前端项目静态资源
 	router.Static("/storage", "./storage/app/public")
@@ -39,6 +40,9 @@ func setupRouter() *gin.Engine {
 	// 注册 api 分组路由
 	apiGroup := router.Group("/api")
 	routes.SetUserGroupRoutes(apiGroup)
+	routes.SetProblemGroupRoutes(apiGroup)
+	routes.SetSubmitGroupRoutes(apiGroup)
+	routes.SetCaptchaGroupRoutes(apiGroup)
 
 	return router
 }
@@ -56,7 +60,7 @@ func RunServer() {
 	//使用 srv.ListenAndServe() 方法来异步启动服务器。
 	go func() {
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			global.App.Log.Fatal("服务器启动失败：" + err.Error())
+			global.App.Log.Fatal("服务器启动失败：, 错误:", zap.Any("err", err))
 		}
 	}()
 

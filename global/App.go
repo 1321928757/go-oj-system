@@ -6,6 +6,7 @@ import (
 	"go.uber.org/zap"
 	"gorm.io/gorm"
 	"online-practice-system/config"
+	"online-practice-system/pkg/mail"
 )
 
 // 全局变量
@@ -15,6 +16,7 @@ type Application struct {
 	Log         *zap.Logger
 	DB          *gorm.DB
 	Redis       *redis.Client
+	EmailDriver *mail.EmailDriver
 }
 
 var App = new(Application)

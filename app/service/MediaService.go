@@ -7,7 +7,7 @@ import (
 	"online-practice-system/app/common/request"
 	"online-practice-system/app/dao"
 	"online-practice-system/global"
-	"online-practice-system/model"
+	"online-practice-system/pkg/model"
 	"online-practice-system/utils/storage"
 	"path"
 	"strconv"
@@ -25,6 +25,7 @@ type outPut struct {
 	Url  string `json:"url"`
 }
 
+// redis key前缀
 const mediaCacheKeyPre = "media:"
 
 // 文件存储目录

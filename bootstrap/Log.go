@@ -4,6 +4,7 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
+	"online-practice-system/config"
 	"online-practice-system/global"
 	"online-practice-system/utils"
 	"os"
@@ -17,28 +18,29 @@ var (
 
 // 初始化zag日志
 func InitializeLog() *zap.Logger {
+	zagConfig := global.App.Config.Log
 	// 创建根目录
-	createRootDir()
+	createRootDir(zagConfig)
 
 	// 设置日志等级
-	setLogLevel()
+	setLogLevel(zagConfig)
 
-	if global.App.Config.Log.ShowLine {
+	if zagConfig.ShowLine {
 		options = append(options, zap.AddCaller())
 	}
 
 	// 初始化 zap
-	return zap.New(getZapCore(), options...)
+	return zap.New(getZapCore(zagConfig), options...)
 }
 
-func createRootDir() {
-	if ok, _ := utils.PathExists(global.App.Config.Log.RootDir); !ok {
-		_ = os.Mkdir(global.App.Config.Log.RootDir, os.ModePerm)
+func createRootDir(config config.Log) {
+	if ok, _ := utils.PathExists(config.RootDir); !ok {
+		_ = os.Mkdir(config.RootDir, os.ModePerm)
 	}
 }
 
-func setLogLevel() {
-	switch global.App.Config.Log.Level {
+func setLogLevel(config config.Log) {
+	switch config.Level {
 	case "debug":
 		level = zap.DebugLevel
 		options = append(options, zap.AddStacktrace(level))
@@ -61,7 +63,7 @@ func setLogLevel() {
 }
 
 // 扩展 Zap
-func getZapCore() zapcore.Core {
+func getZapCore(config config.Log) zapcore.Core {
 	var encoder zapcore.Encoder
 
 	// 调整编码器默认配置
@@ -82,11 +84,11 @@ func getZapCore() zapcore.Core {
 
 	// 设置日志写入器,使用 lumberjack 作为日志写入器
 	file := &lumberjack.Logger{
-		Filename:   global.App.Config.Log.RootDir + "/" + global.App.Config.Log.Filename,
-		MaxSize:    global.App.Config.Log.MaxSize,
-		MaxBackups: global.App.Config.Log.MaxBackups,
-		MaxAge:     global.App.Config.Log.MaxAge,
-		Compress:   global.App.Config.Log.Compress,
+		Filename:   config.RootDir + "/" + config.Filename,
+		MaxSize:    config.MaxSize,
+		MaxBackups: config.MaxBackups,
+		MaxAge:     config.MaxAge,
+		Compress:   config.Compress,
 	}
 	fileSyncer := zapcore.AddSync(file)
 	// 创建多个写入器，包括文件和控制台

@@ -9,7 +9,7 @@ import (
 	"io"
 	"log"
 	"online-practice-system/global"
-	model2 "online-practice-system/model"
+	"online-practice-system/pkg/model"
 	"os"
 	"strconv"
 	"time"
@@ -47,7 +47,8 @@ func initMySqlGorm() *gorm.DB {
 		Logger:                                   getGormLogger(), // 添加gorm logger配置
 	}
 	if db, err := gorm.Open(mysql.New(mysqlConfig), gormConfig); err != nil {
-		global.App.Log.Error("mysql connect failed, err:", zap.Any("err", err))
+		global.App.Log.Fatal("mysql数据库连接失败, 错误:", zap.Any("err", err))
+
 		return nil
 	} else {
 		global.App.Log.Info("mysql数据库连接成功~~~~~")
@@ -67,8 +68,13 @@ AutoMigrate 方法会尝试自动更改表结构，以使其与结构体定义�
 func initMySqlTables(db *gorm.DB) {
 	err := db.AutoMigrate(
 		//model.ProblemBasic{},
-		model2.User{},
-		model2.Media{},
+		model.UserBasic{},
+		model.Media{},
+		model.ProblemBasic{},
+		model.CategoryBasic{},
+		model.ProblemCategory{},
+		model.TestCase{},
+		model.SubmitBasic{},
 	)
 	if err != nil {
 		global.App.Log.Error("migrate table failed", zap.Any("err", err))

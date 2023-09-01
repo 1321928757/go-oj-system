@@ -19,7 +19,7 @@ database:  # 数据库配置
   driver: mysql # 数据库驱动
   host: 127.0.0.1 # 域名
   port: 3306 # 端口号
-  database: go_test # 数据库名称
+  database: practice_online # 数据库名称
   username: root # 用户名
   password: lsj20030222 # 密码
   charset: utf8mb4 # 编码格式
@@ -70,6 +70,21 @@ storage: # 存储配置
       domain: ap-chengdu
       is_ssl: true
       is_private: false
+
+email: # 邮件配置
+  sender_name: kitie # 发件人名称
+  sender_email: 1321928757@qq.com # 发件人邮箱
+  sender_password: xmysseozfhnsiieb # 发件人密码
+  host: smtp.qq.com # smtp服务器地址
+  port: 587 # smtp服务器端口
+  max_connection: 4 # 最大并发SMTP连接数
+  max_timeout: 20  # 最大超时时间（s）
+
+captcha: #验证码配置
+  email_number: 4 #邮箱验证码位数
+  email_timeout: 300 #  邮箱验证码有效期(秒)
+  figure_number: 4 #图形验证码位数
+  figure_timeout: 120 # 图形验证码有效期(秒)
 
 
 

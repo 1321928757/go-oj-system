@@ -2,7 +2,6 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt/v5"
 	"online-practice-system/app/common/response"
 	"online-practice-system/app/service"
 	"online-practice-system/global"
@@ -20,12 +19,11 @@ func JWTAuth(GuardName string) gin.HandlerFunc {
 			c.Abort() // 终止请求
 			return
 		}
+		// 去掉 token 前缀
 		tokenStr = tokenStr[len(service.TokenType)+1:]
 
 		// Token 解析校验
-		token, err := jwt.ParseWithClaims(tokenStr, &service.CustomClaims{}, func(token *jwt.Token) (interface{}, error) {
-			return []byte(global.App.Config.Jwt.Secret), nil
-		})
+		token, claims, err := service.JwtService.ParseToken(tokenStr)
 
 		// Token 黑名单校验
 		if err != nil || service.JwtService.IsInBlacklist(tokenStr) {
@@ -35,7 +33,6 @@ func JWTAuth(GuardName string) gin.HandlerFunc {
 		}
 
 		// Token 发布者校验和过期校验
-		claims := token.Claims.(*service.CustomClaims)
 		if claims.Issuer != GuardName || !token.Valid {
 			response.TokenFail(c)
 			c.Abort()
@@ -44,6 +41,7 @@ func JWTAuth(GuardName string) gin.HandlerFunc {
 
 		// token 续签
 		if claims.ExpiresAt.Time.Unix()-time.Now().Unix() < global.App.Config.Jwt.RefreshGracePeriod {
+			//  使用了锁机制来确保只有一个续签操作在运行
 			lock := global.Lock("refresh_token_lock", global.App.Config.Jwt.JwtBlacklistGracePeriod)
 			if lock.Get() {
 				err, user := service.JwtService.GetUserInfo(GuardName, claims.ID)

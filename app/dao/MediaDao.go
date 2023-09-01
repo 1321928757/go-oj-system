@@ -2,7 +2,7 @@ package dao
 
 import (
 	"online-practice-system/global"
-	"online-practice-system/model"
+	"online-practice-system/pkg/model"
 )
 
 type mediaDao struct {

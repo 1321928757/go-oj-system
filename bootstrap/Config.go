@@ -22,13 +22,13 @@ func InitializeConfig() *viper.Viper {
 	v.SetConfigFile(config)
 	v.SetConfigType("yaml")
 	if err := v.ReadInConfig(); err != nil {
-		panic(fmt.Errorf("read config failed: %s \n", err))
+		panic(fmt.Errorf("viper读取配置失败，错误: %s \n", err))
 	}
 
 	// 监听配置文件
 	v.WatchConfig()
 	v.OnConfigChange(func(in fsnotify.Event) {
-		fmt.Println("config fileDriver changed:", in.Name)
+		fmt.Println("检测到日志更改:", in.Name)
 		// 重载配置,这里可以进行重启服务器,或者其他操作
 		if err := v.Unmarshal(&global.App.Config); err != nil {
 			fmt.Println(err)

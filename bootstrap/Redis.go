@@ -9,14 +9,15 @@ import (
 
 // InitializeRedis 初始化 Redis
 func InitializeRedis() *redis.Client {
+	redisConfig := global.App.Config.Redis
 	client := redis.NewClient(&redis.Options{
-		Addr:     global.App.Config.Redis.Host + ":" + global.App.Config.Redis.Port,
-		Password: global.App.Config.Redis.Password, // no password set
-		DB:       global.App.Config.Redis.DB,       // use default DB
+		Addr:     redisConfig.Host + ":" + redisConfig.Port,
+		Password: redisConfig.Password, // no password set
+		DB:       redisConfig.DB,       // use default DB
 	})
 	_, err := client.Ping(context.Background()).Result()
 	if err != nil {
-		global.App.Log.Error("Redis connect ping failed, err:", zap.Any("err", err))
+		global.App.Log.Fatal("Redis连接失败, 错误:", zap.Any("err", err))
 		return nil
 	}
 	return client
