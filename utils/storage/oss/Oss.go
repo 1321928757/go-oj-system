@@ -4,7 +4,7 @@ import (
 	alioss "github.com/aliyun/aliyun-oss-go-sdk/oss"
 	"io"
 	"online-practice-system/config/fileDriver"
-	"online-practice-system/utils"
+	"online-practice-system/utils/File"
 	"online-practice-system/utils/storage"
 	"strconv"
 	"sync"
@@ -47,7 +47,7 @@ func Init(config fileDriver.AliConfig) (storage.Storage, error) {
 }
 
 func (o *oss) Put(key string, r io.Reader, dataLength int64) error {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	err := o.bucket.PutObject(key, r)
 	if err != nil {
@@ -58,7 +58,7 @@ func (o *oss) Put(key string, r io.Reader, dataLength int64) error {
 }
 
 func (o *oss) PutFile(key string, localFile string) error {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	err := o.bucket.PutObjectFromFile(key, localFile)
 	if err != nil {
@@ -69,7 +69,7 @@ func (o *oss) PutFile(key string, localFile string) error {
 }
 
 func (o *oss) Get(key string) (io.ReadCloser, error) {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	body, err := o.bucket.GetObject(key)
 	if err != nil {
@@ -80,8 +80,8 @@ func (o *oss) Get(key string) (io.ReadCloser, error) {
 }
 
 func (o *oss) Rename(srcKey string, destKey string) error {
-	srcKey = utils.NormalizeKey(srcKey)
-	destKey = utils.NormalizeKey(destKey)
+	srcKey = File.NormalizeKey(srcKey)
+	destKey = File.NormalizeKey(destKey)
 
 	_, err := o.bucket.CopyObject(srcKey, destKey)
 	if err != nil {
@@ -97,8 +97,8 @@ func (o *oss) Rename(srcKey string, destKey string) error {
 }
 
 func (o *oss) Copy(srcKey string, destKey string) error {
-	srcKey = utils.NormalizeKey(srcKey)
-	destKey = utils.NormalizeKey(destKey)
+	srcKey = File.NormalizeKey(srcKey)
+	destKey = File.NormalizeKey(destKey)
 
 	_, err := o.bucket.CopyObject(srcKey, destKey)
 	if err != nil {
@@ -109,13 +109,13 @@ func (o *oss) Copy(srcKey string, destKey string) error {
 }
 
 func (o *oss) Exists(key string) (bool, error) {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	return o.bucket.IsObjectExist(key)
 }
 
 func (o *oss) Size(key string) (int64, error) {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	props, err := o.bucket.GetObjectDetailedMeta(key)
 	if err != nil {
@@ -131,7 +131,7 @@ func (o *oss) Size(key string) (int64, error) {
 }
 
 func (o *oss) Delete(key string) error {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	err := o.bucket.DeleteObject(key)
 	if err != nil {
@@ -143,7 +143,7 @@ func (o *oss) Delete(key string) error {
 
 func (o *oss) Url(key string) string {
 	var prefix string
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	if o.config.IsSsl {
 		prefix = "https://"

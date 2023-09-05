@@ -3,7 +3,7 @@ package global
 import (
 	"context"
 	"github.com/redis/go-redis/v9"
-	"online-practice-system/utils"
+	"online-practice-system/utils/str"
 	"time"
 )
 
@@ -37,7 +37,7 @@ func Lock(name string, seconds int64) Interface {
 	return &lock{
 		context.Background(),
 		name,
-		utils.RandString(16),
+		str.RandString(16),
 		seconds,
 	}
 }

@@ -12,7 +12,7 @@ import (
 	"net/url"
 	"online-practice-system/config/fileDriver"
 	"online-practice-system/global"
-	"online-practice-system/utils"
+	"online-practice-system/utils/File"
 	"online-practice-system/utils/storage"
 	"sync"
 	"time"
@@ -88,8 +88,8 @@ func (c cos) Get(key string) (io.ReadCloser, error) {
 }
 
 func (c cos) Rename(srcKey string, destKey string) error {
-	srcKey = utils.NormalizeKey(srcKey)
-	destKey = utils.NormalizeKey(destKey)
+	srcKey = File.NormalizeKey(srcKey)
+	destKey = File.NormalizeKey(destKey)
 
 	// 改名其实就是复制文件，然后删除原文件
 	_, _, err := c.client.Object.Copy(context.Background(), srcKey, destKey, nil)
@@ -106,8 +106,8 @@ func (c cos) Rename(srcKey string, destKey string) error {
 }
 
 func (c cos) Copy(srcKey string, destKey string) error {
-	srcKey = utils.NormalizeKey(srcKey)
-	destKey = utils.NormalizeKey(destKey)
+	srcKey = File.NormalizeKey(srcKey)
+	destKey = File.NormalizeKey(destKey)
 
 	_, _, err := c.client.Object.Copy(context.Background(), srcKey, destKey, nil)
 	if err != nil {
@@ -118,12 +118,12 @@ func (c cos) Copy(srcKey string, destKey string) error {
 }
 
 func (c cos) Exists(key string) (bool, error) {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 	return c.client.Object.IsExist(context.Background(), key)
 }
 
 func (c cos) Size(key string) (int64, error) {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	// 获取文件信息
 	head, err := c.client.Object.Head(context.Background(), key, nil)
@@ -135,7 +135,7 @@ func (c cos) Size(key string) (int64, error) {
 }
 
 func (c cos) Delete(key string) error {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	_, err := c.client.Object.Delete(context.Background(), key)
 	if err != nil {
@@ -147,7 +147,7 @@ func (c cos) Delete(key string) error {
 
 func (c cos) Url(key string) string {
 	var prefix string
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	if c.config.IsSsl {
 		prefix = "https://"

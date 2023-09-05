@@ -7,7 +7,7 @@ import (
 	"io"
 	"net/http"
 	"online-practice-system/config/fileDriver"
-	"online-practice-system/utils"
+	"online-practice-system/utils/File"
 	"online-practice-system/utils/storage"
 	"sync"
 	"time"
@@ -51,7 +51,7 @@ func Init(config fileDriver.QiNiuConfig) (storage.Storage, error) {
 }
 
 func (k *kodo) Put(key string, r io.Reader, dataLength int64) error {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	upToken := k.putPolicy.UploadToken(k.mac)
 	ret := qiniuStorage.PutRet{}
@@ -64,7 +64,7 @@ func (k *kodo) Put(key string, r io.Reader, dataLength int64) error {
 }
 
 func (k *kodo) PutFile(key string, localFile string) error {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	upToken := k.putPolicy.UploadToken(k.mac)
 	ret := qiniuStorage.PutRet{}
@@ -77,7 +77,7 @@ func (k *kodo) PutFile(key string, localFile string) error {
 }
 
 func (k *kodo) Get(key string) (io.ReadCloser, error) {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	resp, err := http.Get(k.Url(key))
 	if err != nil {
@@ -88,8 +88,8 @@ func (k *kodo) Get(key string) (io.ReadCloser, error) {
 }
 
 func (k *kodo) Rename(srcKey string, destKey string) error {
-	srcKey = utils.NormalizeKey(srcKey)
-	destKey = utils.NormalizeKey(destKey)
+	srcKey = File.NormalizeKey(srcKey)
+	destKey = File.NormalizeKey(destKey)
 
 	err := k.bucketManager.Move(k.config.Bucket, srcKey, k.config.Bucket, destKey, true)
 	if err != nil {
@@ -100,8 +100,8 @@ func (k *kodo) Rename(srcKey string, destKey string) error {
 }
 
 func (k *kodo) Copy(srcKey string, destKey string) error {
-	srcKey = utils.NormalizeKey(srcKey)
-	destKey = utils.NormalizeKey(destKey)
+	srcKey = File.NormalizeKey(srcKey)
+	destKey = File.NormalizeKey(destKey)
 
 	err := k.bucketManager.Copy(k.config.Bucket, srcKey, k.config.Bucket, destKey, true)
 	if err != nil {
@@ -112,7 +112,7 @@ func (k *kodo) Copy(srcKey string, destKey string) error {
 }
 
 func (k *kodo) Exists(key string) (bool, error) {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	_, err := k.bucketManager.Stat(k.config.Bucket, key)
 	if err != nil {
@@ -126,7 +126,7 @@ func (k *kodo) Exists(key string) (bool, error) {
 }
 
 func (k *kodo) Size(key string) (int64, error) {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	fileInfo, err := k.bucketManager.Stat(k.config.Bucket, key)
 	if err != nil {
@@ -137,7 +137,7 @@ func (k *kodo) Size(key string) (int64, error) {
 }
 
 func (k *kodo) Delete(key string) error {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	err := k.bucketManager.Delete(k.config.Bucket, key)
 	if err != nil {
@@ -150,7 +150,7 @@ func (k *kodo) Delete(key string) error {
 func (k *kodo) Url(key string) string {
 	var prefix string
 
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 
 	if k.config.IsSsl {
 		prefix = "https://"

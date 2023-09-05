@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"online-practice-system/global"
-	"online-practice-system/utils"
+	"online-practice-system/utils/str"
 	"time"
 )
 
@@ -26,7 +26,7 @@ func (captchaService) SendEmailCode(mail string) (err error) {
 		return
 	}
 	// 生成随机验证码
-	code := utils.RandString(global.App.Config.Captcha.EmailNumber)
+	code := str.RandString(global.App.Config.Captcha.EmailNumber)
 	// 设置邮件内容
 	content := fmt.Sprintf("您的验证码是: %s，请在5分钟内完成验证。", code)
 	// 保存验证码到redis，并发送邮件

@@ -7,6 +7,7 @@ import (
 	"online-practice-system/internal/common/response"
 	"online-practice-system/internal/define"
 	"online-practice-system/internal/service"
+	"online-practice-system/internal/vo"
 	"strconv"
 )
 
@@ -58,7 +59,13 @@ func (userController) Login(c *gin.Context) {
 			response.BusinessFail(c, err.Error())
 			return
 		}
-		response.Success(c, tokenData)
+		//拼接token的种类与key
+		token := tokenData.TokenType + tokenData.AccessToken
+		userLoginVo := vo.UserLogineVo{
+			UserBasic: user,
+			Token:     token,
+		}
+		response.Success(c, userLoginVo)
 	}
 }
 

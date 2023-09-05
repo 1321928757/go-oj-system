@@ -6,7 +6,7 @@ import (
 	"online-practice-system/internal/common/request"
 	"online-practice-system/internal/common/response"
 	"online-practice-system/internal/service"
-	"online-practice-system/utils"
+	"online-practice-system/utils/File"
 	"strconv"
 )
 
@@ -36,7 +36,7 @@ func (uploadController) ImageUpload(c *gin.Context) {
 	var file = form.Image
 	// 校验文件类型
 	contentType := file.Header.Get("Content-Type")
-	if !utils.IsValidImageType(contentType) {
+	if !File.IsValidImageType(contentType) {
 		response.ValidateFail(c, "文件类型不合法")
 		return
 	}

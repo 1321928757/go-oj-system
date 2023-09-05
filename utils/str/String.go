@@ -1,4 +1,4 @@
-package utils
+package str
 
 import (
 	uuid "github.com/satori/go.uuid"

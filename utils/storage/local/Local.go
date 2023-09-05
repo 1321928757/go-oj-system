@@ -3,7 +3,7 @@ package local
 import (
 	"io"
 	"online-practice-system/config/fileDriver"
-	"online-practice-system/utils"
+	"online-practice-system/utils/File"
 	"online-practice-system/utils/storage"
 	"os"
 	"path/filepath"
@@ -33,7 +33,7 @@ func Init(config fileDriver.LocalConfig) (storage.Storage, error) {
 }
 
 func (l *local) getPath(key string) string {
-	key = utils.NormalizeKey(key)
+	key = File.NormalizeKey(key)
 	return filepath.Join(l.config.RootDir, key)
 }
 
@@ -65,7 +65,7 @@ func (l *local) Put(key string, r io.Reader, dataLength int64) error {
 func (l *local) PutFile(key string, localFile string) error {
 	path := l.getPath(localFile)
 
-	fd, fileInfo, err := utils.OpenAsReadOnly(path)
+	fd, fileInfo, err := File.OpenAsReadOnly(path)
 	if err != nil {
 		return err
 	}
@@ -77,7 +77,7 @@ func (l *local) PutFile(key string, localFile string) error {
 func (l *local) Get(key string) (io.ReadCloser, error) {
 	path := l.getPath(key)
 
-	fd, _, err := utils.OpenAsReadOnly(path)
+	fd, _, err := File.OpenAsReadOnly(path)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +106,7 @@ func (l *local) Rename(srcKey string, destKey string) error {
 
 func (l *local) Copy(srcKey string, destKey string) error {
 	srcPath := l.getPath(srcKey)
-	srcFd, _, err := utils.OpenAsReadOnly(srcPath)
+	srcFd, _, err := File.OpenAsReadOnly(srcPath)
 	if err != nil {
 		return err
 	}
@@ -184,5 +184,5 @@ func (l *local) Delete(key string) error {
 
 // Url 获取文件访问链接
 func (l *local) Url(key string) string {
-	return l.config.AppUrl + "/" + utils.NormalizeKey(key)
+	return l.config.AppUrl + "/" + File.NormalizeKey(key)
 }

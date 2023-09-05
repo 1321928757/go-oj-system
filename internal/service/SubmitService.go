@@ -10,7 +10,8 @@ import (
 	"online-practice-system/internal/dao"
 	"online-practice-system/internal/model"
 	"online-practice-system/internal/vo"
-	"online-practice-system/utils"
+	"online-practice-system/utils/File"
+	"online-practice-system/utils/str"
 	"os/exec"
 	"runtime"
 	"sync"
@@ -40,9 +41,9 @@ func (s submitService) SaveSubmitAndJudge(userId uint, userMail string,
 	param request.SubmitSendParam) (msg string, err error) {
 	// 将代码保存到本地
 	path := global.App.Config.Storage.Drivers.Local.RootDir + "/code/" +
-		userMail + "/" + utils.GetUuid() + "/" + "main.go"
+		userMail + "/" + str.GetUuid() + "/" + "main.go"
 
-	utils.FileSave(path, []byte(param.Code))
+	File.FileSave(path, []byte(param.Code))
 
 	// 创建提交记录基本信息
 	submitBasic := &model.SubmitBasic{
@@ -80,7 +81,7 @@ func (s submitService) SaveSubmitAndJudge(userId uint, userMail string,
 	// 锁
 	var lock sync.Mutex
 	// 简单检测代码合法性
-	v, err := utils.CheckGoCodeValid(path)
+	v, err := str.CheckGoCodeValid(path)
 	if err != nil {
 		return
 	}

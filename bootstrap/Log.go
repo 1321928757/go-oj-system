@@ -6,7 +6,7 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 	"online-practice-system/config"
 	"online-practice-system/global"
-	"online-practice-system/utils"
+	"online-practice-system/utils/File"
 	"os"
 	"time"
 )
@@ -34,7 +34,7 @@ func InitializeLog() *zap.Logger {
 }
 
 func createRootDir(config config.Log) {
-	if ok, _ := utils.PathExists(config.RootDir); !ok {
+	if ok, _ := File.PathExists(config.RootDir); !ok {
 		_ = os.Mkdir(config.RootDir, os.ModePerm)
 	}
 }

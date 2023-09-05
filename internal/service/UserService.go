@@ -9,7 +9,7 @@ import (
 	"online-practice-system/internal/dao"
 	"online-practice-system/internal/model"
 	"online-practice-system/internal/vo"
-	"online-practice-system/utils"
+	"online-practice-system/utils/bcrypt"
 )
 
 type userService struct {
@@ -44,7 +44,7 @@ func (userService *userService) Register(userRegister request.UserRegister) (err
 	}
 
 	// 成功注册，添加用户
-	user = &model.UserBasic{Username: userRegister.Username, Password: utils.BcryptMake(userRegister.Password),
+	user = &model.UserBasic{Username: userRegister.Username, Password: bcrypt.BcryptMake(userRegister.Password),
 		Mail: userRegister.Mail}
 	err = dao.UserDao.AddUser(user)
 	if err != nil {
@@ -58,7 +58,7 @@ func (userService *userService) Register(userRegister request.UserRegister) (err
 // Login 登录
 func (userService *userService) Login(userLogin request.UserLogin) (err error, user *model.UserBasic) {
 	err, user = dao.UserDao.GetUserByUsername(userLogin.Username)
-	if err != nil || !utils.BcryptMakeCheck(userLogin.Password, user.Password) {
+	if err != nil || !bcrypt.BcryptMakeCheck(userLogin.Password, user.Password) {
 		err = errors.New("用户不存在或密码错误")
 	}
 	return

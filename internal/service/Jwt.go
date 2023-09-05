@@ -5,7 +5,7 @@ import (
 	"errors"
 	"github.com/golang-jwt/jwt/v5"
 	"online-practice-system/global"
-	"online-practice-system/utils"
+	"online-practice-system/utils/bcrypt"
 	"strconv"
 	"time"
 )
@@ -82,7 +82,7 @@ func (jwtService *jwtService) ParseToken(tokenStr string) (token *jwt.Token, cla
 
 // 获取黑名单缓存 key
 func (jwtService *jwtService) getBlackListKey(tokenStr string) string {
-	return "jwt_black_list:" + utils.MD5([]byte(tokenStr))
+	return "jwt_black_list:" + bcrypt.MD5([]byte(tokenStr))
 }
 
 // JoinBlackList token 加入黑名单

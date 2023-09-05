@@ -52879,3 +52879,522 @@
 
 2023/09/05 21:06:23 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:57
 [3.000ms] [rows:1] UPDATE `user_basic` SET `pass_num`=pass_num + 0,`submit_num`=submit_num + 1,`updated_at`='2023-09-05 21:06:23.499' WHERE id = 6
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.723ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.914ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'user_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.585ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `user_basic` LIMIT 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.826ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'user_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.611ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.643ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'media' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.517ms] [rows:-] SELECT * FROM `media` LIMIT 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.523ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'media' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.507ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.716ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'practice_online' AND table_name = 'media' AND index_name = 'idx_media_disk_type'
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.794ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'problem_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.510ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.524ms] [rows:-] SELECT * FROM `problem_basic` LIMIT 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.550ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'problem_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.649ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.509ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'problem_category' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.636ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `problem_category` LIMIT 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.642ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'problem_category' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.595ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.508ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'category_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.508ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `category_basic` LIMIT 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.767ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'category_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.509ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.835ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'test_case' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.507ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `test_case` LIMIT 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.517ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'test_case' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.557ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.556ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'submit_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.553ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `submit_basic` LIMIT 1
+
+2023/09/05 21:23:44 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.529ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'submit_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:23:46 D:/GoLandProjects/online-practice-system/internal/dao/ProblemDao.go:56
+[0.508ms] [rows:7] SELECT * FROM `test_case` WHERE `test_case`.`problem_id` = 33
+
+2023/09/05 21:23:46 D:/GoLandProjects/online-practice-system/internal/dao/ProblemDao.go:56
+[1.225ms] [rows:1] SELECT * FROM `problem_basic` WHERE id = 33 ORDER BY `problem_basic`.`id` LIMIT 1
+
+2023/09/05 21:23:48 D:/GoLandProjects/online-practice-system/internal/dao/SubmitDao.go:40
+[0.507ms] [rows:1] INSERT INTO `submit_basic` (`created_at`,`updated_at`,`problem_id`,`user_id`,`path`,`status`) VALUES ('2023-09-05 21:23:48.043','2023-09-05 21:23:48.043',33,6,'./storage/app/code/1321928757@qq.com/6a6204b3-e2f0-419e-878d-550984af1ad5/main.go',1)
+
+2023/09/05 21:23:48 D:/GoLandProjects/online-practice-system/internal/dao/ProblemDao.go:81
+[0.526ms] [rows:1] UPDATE `problem_basic` SET `pass_num`=pass_num + 1,`submit_num`=submit_num + 1,`updated_at`='2023-09-05 21:23:48.044' WHERE id = 33
+
+2023/09/05 21:23:48 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:57
+[0.540ms] [rows:1] UPDATE `user_basic` SET `pass_num`=pass_num + 1,`submit_num`=submit_num + 1,`updated_at`='2023-09-05 21:23:48.045' WHERE id = 6
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.829ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.850ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'user_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.529ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.529ms] [rows:-] SELECT * FROM `user_basic` LIMIT 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[1.256ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'user_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.664ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.505ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'media' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.505ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `media` LIMIT 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[1.018ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'media' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.574ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.657ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'practice_online' AND table_name = 'media' AND index_name = 'idx_media_disk_type'
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.511ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'problem_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.602ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `problem_basic` LIMIT 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.646ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'problem_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.582ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.505ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'problem_category' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.505ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `problem_category` LIMIT 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.598ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'problem_category' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.542ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'category_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.528ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `category_basic` LIMIT 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.625ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'category_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.513ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'test_case' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.536ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `test_case` LIMIT 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.605ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'test_case' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.505ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[1.095ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'submit_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.505ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.515ms] [rows:-] SELECT * FROM `submit_basic` LIMIT 1
+
+2023/09/05 21:51:09 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.506ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'submit_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 21:51:17 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:22 record not found
+[0.669ms] [rows:0] SELECT * FROM `user_basic` WHERE username = '123123' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 21:51:24 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:22 record not found
+[0.671ms] [rows:0] SELECT * FROM `user_basic` WHERE username = '123123' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 21:52:06 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:22 record not found
+[0.699ms] [rows:0] SELECT * FROM `user_basic` WHERE username = '123123' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 21:52:36 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:22 record not found
+[0.631ms] [rows:0] SELECT * FROM `user_basic` WHERE username = '123' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[2.299ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[1.628ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'user_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.675ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.529ms] [rows:-] SELECT * FROM `user_basic` LIMIT 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[1.399ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'user_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.718ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[1.021ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'media' AND table_type = 'BASE TABLE'
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.506ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `media` LIMIT 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.518ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'media' ORDER BY ORDINAL_POSITION
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.509ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.933ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'practice_online' AND table_name = 'media' AND index_name = 'idx_media_disk_type'
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.519ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.945ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'problem_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.506ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `problem_basic` LIMIT 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.519ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'problem_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.597ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.760ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'problem_category' AND table_type = 'BASE TABLE'
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.664ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.506ms] [rows:-] SELECT * FROM `problem_category` LIMIT 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.599ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'problem_category' ORDER BY ORDINAL_POSITION
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.516ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'category_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.517ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.550ms] [rows:-] SELECT * FROM `category_basic` LIMIT 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[1.119ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'category_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.674ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[1.450ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'test_case' AND table_type = 'BASE TABLE'
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.519ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `test_case` LIMIT 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[1.280ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'test_case' ORDER BY ORDINAL_POSITION
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.581ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.506ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'practice_online' AND table_name = 'submit_basic' AND table_type = 'BASE TABLE'
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.515ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'practice_online%' ORDER BY SCHEMA_NAME='practice_online' DESC,SCHEMA_NAME limit 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.000ms] [rows:-] SELECT * FROM `submit_basic` LIMIT 1
+
+2023/09/05 22:02:51 D:/GoLandProjects/online-practice-system/bootstrap/DB.go:69
+[0.846ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'practice_online' AND table_name = 'submit_basic' ORDER BY ORDINAL_POSITION
+
+2023/09/05 22:02:54 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:22
+[0.650ms] [rows:1] SELECT * FROM `user_basic` WHERE username = '张11四1111' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 22:04:26 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:22
+[0.618ms] [rows:1] SELECT * FROM `user_basic` WHERE username = '张11四1111' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 22:12:27 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:28
+[1.326ms] [rows:1] SELECT * FROM `user_basic` WHERE mail = '1321928757@qq.com' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 22:12:28 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:28
+[0.490ms] [rows:1] SELECT * FROM `user_basic` WHERE mail = '1321928757@qq.com' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 22:12:29 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:28
+[0.000ms] [rows:1] SELECT * FROM `user_basic` WHERE mail = '1321928757@qq.com' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 22:12:29 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:28
+[0.197ms] [rows:1] SELECT * FROM `user_basic` WHERE mail = '1321928757@qq.com' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 22:12:50 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:28 record not found
+[0.346ms] [rows:0] SELECT * FROM `user_basic` WHERE mail = '1321928757@qq.com' ORDER BY `user_basic`.`id` LIMIT 1
+
+2023/09/05 22:12:50 D:/GoLandProjects/online-practice-system/internal/dao/UserDao.go:16
+[2.135ms] [rows:1] INSERT INTO `user_basic` (`created_at`,`updated_at`,`username`,`password`,`phone`,`mail`,`pass_num`,`submit_num`,`is_admin`) VALUES ('2023-09-05 22:12:50.65','2023-09-05 22:12:50.65','123123','$2a$04$mLCxBecFrjsYQcYIz6jlEeZc7QvUePUIwz8PiQjI04198wCLOdGGy','','1321928757@qq.com',0,0,0)

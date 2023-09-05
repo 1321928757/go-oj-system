@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"online-practice-system/internal/common/response"
 	"online-practice-system/internal/service"
-	"online-practice-system/utils"
+	"online-practice-system/utils/validator"
 )
 
 type captchaController struct {
@@ -22,7 +22,7 @@ var CaptchaController = new(captchaController)
 func (captchaController) SendMailCode(c *gin.Context) {
 	//获取email参数
 	email := c.PostForm("email")
-	if email == "" || !utils.ValidateEmail(email) {
+	if email == "" || !validator.ValidateEmail(email) {
 		response.ValidateFail(c, "邮箱地址格式错误")
 		return
 	}
