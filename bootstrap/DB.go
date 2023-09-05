@@ -9,7 +9,7 @@ import (
 	"io"
 	"log"
 	"online-practice-system/global"
-	"online-practice-system/pkg/model"
+	"online-practice-system/internal/model"
 	"os"
 	"strconv"
 	"time"

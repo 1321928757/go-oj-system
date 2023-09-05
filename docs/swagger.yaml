@@ -1,24 +1,161 @@
 definitions:
-  gorm.DeletedAt:
-    properties:
-      time:
-        type: string
-      valid:
-        description: Valid is true if Time is not NULL
-        type: boolean
-    type: object
-  model.User:
+  model.CategoryBasic:
     properties:
       created_at:
         type: string
-      deleted_at:
-        $ref: '#/definitions/gorm.DeletedAt'
       id:
+        type: integer
+      name:
+        description: 分类名称
+        type: string
+      parent_id:
+        description: 父级ID
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  model.ProblemBasic:
+    properties:
+      content:
+        description: 文章正文
+        type: string
+      created_at:
+        type: string
+      id:
+        type: integer
+      max_mem:
+        description: 最大运行内存
+        type: integer
+      max_runtime:
+        description: 最大运行时长
+        type: integer
+      pass_num:
+        description: 通过次数
+        type: integer
+      problem_categories:
+        description: 关联问题分类表
+        items:
+          $ref: '#/definitions/model.ProblemCategory'
+        type: array
+      submit_num:
+        description: 提交次数
+        type: integer
+      test_cases:
+        description: 关联测试用例表
+        items:
+          $ref: '#/definitions/model.TestCase'
+        type: array
+      title:
+        description: 文章标题
+        type: string
+      updated_at:
+        type: string
+    type: object
+  model.ProblemCategory:
+    properties:
+      category_basic:
+        $ref: '#/definitions/model.CategoryBasic'
+        description: 关联分类的基础信息表
+      category_id:
+        description: 分类的ID
+        type: integer
+      created_at:
+        type: string
+      id:
+        type: integer
+      problem_id:
+        description: 问题的ID
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  model.TestCase:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      input:
+        type: string
+      output:
+        type: string
+      problem_id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  model.UserBasic:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      is_admin:
+        description: 是否是管理员【0-否，1-是】
+        type: integer
+      mail:
+        description: 邮箱
+        type: string
+      pass_num:
+        description: 通过的次数
+        type: integer
+      phone:
+        description: 手机号
+        type: string
+      submit_num:
+        description: 提交次数
         type: integer
       updated_at:
         type: string
       username:
+        description: 用户名
         type: string
+    type: object
+  request.ProblemAddParam:
+    properties:
+      content:
+        description: 问题内容
+        type: string
+      max_mem:
+        description: 最大运行内存
+        type: integer
+      max_runtime:
+        description: 最大运行时长
+        type: integer
+      problem_categories:
+        description: 问题分类id数组
+        items:
+          type: integer
+        type: array
+      test_cases:
+        description: 关联测试用例表
+        items:
+          $ref: '#/definitions/model.TestCase'
+        type: array
+      title:
+        description: 问题标题
+        type: string
+    required:
+    - content
+    - max_mem
+    - max_runtime
+    - problem_categories
+    - test_cases
+    - title
+    type: object
+  request.SubmitPageParam:
+    properties:
+      page:
+        type: integer
+      pageSize:
+        type: integer
+      problemId:
+        type: integer
+      userId:
+        type: integer
+    required:
+    - page
+    - pageSize
     type: object
   service.TokenOutPut:
     properties:
@@ -41,9 +178,211 @@ definitions:
       url:
         type: string
     type: object
+  vo.ProblemPageVo:
+    properties:
+      count:
+        description: 总数
+        type: integer
+      page_list:
+        description: 分页数据
+        items:
+          $ref: '#/definitions/model.ProblemBasic'
+        type: array
+    type: object
+  vo.UserRankPageVo:
+    properties:
+      count:
+        description: 总数
+        type: integer
+      page_list:
+        description: 分页数据
+        items:
+          $ref: '#/definitions/model.UserBasic'
+        type: array
+    type: object
 info:
   contact: {}
+  description: 在线练习系统API文档
+  title: 在线练习系统
+  version: "1"
 paths:
+  /api/captcha/send_email:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 验证码发送成功
+          schema:
+            type: string
+      summary: 发送邮箱验证码
+      tags:
+      - 公共方法
+  /api/category/add:
+    post:
+      parameters:
+      - description: 新增的对应分类信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CategoryBasic'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: 新增分类信息
+      tags:
+      - 管理员私有方法
+  /api/category/list:
+    get:
+      parameters:
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: 每页数量
+        in: query
+        name: pageSize
+        required: true
+        type: integer
+      - description: 关键字
+        in: query
+        name: keyword
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: 获取分类列表
+      tags:
+      - 公有方法
+  /api/category/remove:
+    delete:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: 删除分类信息
+      tags:
+      - 管理员私有方法
+  /api/category/update:
+    put:
+      parameters:
+      - description: 修改的对应分类信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CategoryBasic'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: 修改分类信息
+      tags:
+      - 管理员私有方法
+  /api/problem/add:
+    post:
+      parameters:
+      - description: 用户token
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: 新增问题参数ProblemAddParam
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.ProblemAddParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":"200","data":"添加成功"}'
+          schema:
+            type: string
+      summary: 新增问题
+      tags:
+      - 管理员私有方法
+  /api/problem/detail/{id}:
+    get:
+      parameters:
+      - description: 问题id
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ProblemBasic'
+      summary: 根据id获取问题详细信息
+      tags:
+      - 公共方法
+  /api/problem/list:
+    get:
+      parameters:
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: 每页数量
+        in: query
+        name: pageSize
+        required: true
+        type: integer
+      - description: 关键字
+        in: query
+        name: keyword
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/vo.ProblemPageVo'
+      summary: 获取问题列表
+      tags:
+      - 公共方法
+  /api/submit/list:
+    get:
+      parameters:
+      - description: 查询参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.SubmitPageParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 获取提交记录
+      tags:
+      - 公共方法
   /api/user/image_get_url/{id}:
     get:
       parameters:
@@ -111,6 +450,18 @@ paths:
       summary: 用户登出
       tags:
       - 普通用户方法
+  /api/user/rank:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/vo.UserRankPageVo'
+      summary: 获取用户分页排名数据
+      tags:
+      - 公共方法
   /api/user/register:
     post:
       produces:
@@ -119,7 +470,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/model.User'
+            $ref: '#/definitions/model.UserBasic'
       summary: 用户注册
       tags:
       - 公共方法
@@ -131,7 +482,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/model.User'
+            $ref: '#/definitions/model.UserBasic'
       security:
       - ApiKeyAuth: []
       summary: 获取用户信息

@@ -3,6 +3,7 @@ package utils
 import (
 	"errors"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -61,4 +62,32 @@ func IsValidImageType(contentType string) bool {
 	default:
 		return false
 	}
+}
+
+// FileSave
+// 保存文件，key: 文件路径，code: 文件内容
+func FileSave(key string, code []byte) error {
+	// 提取文件夹路径，如果文件夹不存在则创建
+	dir, _ := filepath.Split(key)
+	if err := os.MkdirAll(dir, os.ModePerm); err != nil {
+		return err
+	}
+
+	// 创建文件
+	fd, err := os.OpenFile(key, os.O_CREATE|os.O_RDWR|os.O_TRUNC, os.ModePerm)
+	if err != nil {
+		if os.IsPermission(err) {
+			return errors.New("permission denied")
+		}
+		return err
+	}
+	defer fd.Close()
+
+	// 将代码内容写入文件
+	_, err = fd.Write(code)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

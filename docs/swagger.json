@@ -1,9 +1,287 @@
 {
     "swagger": "2.0",
     "info": {
-        "contact": {}
+        "description": "在线练习系统API文档",
+        "title": "在线练习系统",
+        "contact": {},
+        "version": "1"
     },
     "paths": {
+        "/api/captcha/send_email": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "公共方法"
+                ],
+                "summary": "发送邮箱验证码",
+                "responses": {
+                    "200": {
+                        "description": "验证码发送成功",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/category/add": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "管理员私有方法"
+                ],
+                "summary": "新增分类信息",
+                "parameters": [
+                    {
+                        "description": "新增的对应分类信息",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CategoryBasic"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/category/list": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "公有方法"
+                ],
+                "summary": "获取分类列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/category/remove": {
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "管理员私有方法"
+                ],
+                "summary": "删除分类信息",
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/category/update": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "管理员私有方法"
+                ],
+                "summary": "修改分类信息",
+                "parameters": [
+                    {
+                        "description": "修改的对应分类信息",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CategoryBasic"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/problem/add": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "管理员私有方法"
+                ],
+                "summary": "新增问题",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户token",
+                        "name": "authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "新增问题参数ProblemAddParam",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.ProblemAddParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":\"200\",\"data\":\"添加成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/problem/detail/{id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "公共方法"
+                ],
+                "summary": "根据id获取问题详细信息",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "问题id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.ProblemBasic"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/problem/list": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "公共方法"
+                ],
+                "summary": "获取问题列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/vo.ProblemPageVo"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/submit/list": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "公共方法"
+                ],
+                "summary": "获取提交记录",
+                "parameters": [
+                    {
+                        "description": "查询参数",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.SubmitPageParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/user/image_get_url/{id}": {
             "get": {
                 "produces": [
@@ -110,6 +388,25 @@
                 }
             }
         },
+        "/api/user/rank": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "公共方法"
+                ],
+                "summary": "获取用户分页排名数据",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/vo.UserRankPageVo"
+                        }
+                    }
+                }
+            }
+        },
         "/api/user/register": {
             "post": {
                 "produces": [
@@ -123,7 +420,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/model.User"
+                            "$ref": "#/definitions/model.UserBasic"
                         }
                     }
                 }
@@ -147,7 +444,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/model.User"
+                            "$ref": "#/definitions/model.UserBasic"
                         }
                     }
                 }
@@ -155,35 +452,228 @@
         }
     },
     "definitions": {
-        "gorm.DeletedAt": {
-            "type": "object",
-            "properties": {
-                "time": {
-                    "type": "string"
-                },
-                "valid": {
-                    "description": "Valid is true if Time is not NULL",
-                    "type": "boolean"
-                }
-            }
-        },
-        "model.User": {
+        "model.CategoryBasic": {
             "type": "object",
             "properties": {
                 "created_at": {
                     "type": "string"
                 },
-                "deleted_at": {
-                    "$ref": "#/definitions/gorm.DeletedAt"
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "分类名称",
+                    "type": "string"
+                },
+                "parent_id": {
+                    "description": "父级ID",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.ProblemBasic": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "description": "文章正文",
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
                 },
                 "id": {
+                    "type": "integer"
+                },
+                "max_mem": {
+                    "description": "最大运行内存",
+                    "type": "integer"
+                },
+                "max_runtime": {
+                    "description": "最大运行时长",
+                    "type": "integer"
+                },
+                "pass_num": {
+                    "description": "通过次数",
+                    "type": "integer"
+                },
+                "problem_categories": {
+                    "description": "关联问题分类表",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.ProblemCategory"
+                    }
+                },
+                "submit_num": {
+                    "description": "提交次数",
+                    "type": "integer"
+                },
+                "test_cases": {
+                    "description": "关联测试用例表",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.TestCase"
+                    }
+                },
+                "title": {
+                    "description": "文章标题",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.ProblemCategory": {
+            "type": "object",
+            "properties": {
+                "category_basic": {
+                    "description": "关联分类的基础信息表",
+                    "$ref": "#/definitions/model.CategoryBasic"
+                },
+                "category_id": {
+                    "description": "分类的ID",
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "problem_id": {
+                    "description": "问题的ID",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.TestCase": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "input": {
+                    "type": "string"
+                },
+                "output": {
+                    "type": "string"
+                },
+                "problem_id": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.UserBasic": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "is_admin": {
+                    "description": "是否是管理员【0-否，1-是】",
+                    "type": "integer"
+                },
+                "mail": {
+                    "description": "邮箱",
+                    "type": "string"
+                },
+                "pass_num": {
+                    "description": "通过的次数",
+                    "type": "integer"
+                },
+                "phone": {
+                    "description": "手机号",
+                    "type": "string"
+                },
+                "submit_num": {
+                    "description": "提交次数",
                     "type": "integer"
                 },
                 "updated_at": {
                     "type": "string"
                 },
                 "username": {
+                    "description": "用户名",
                     "type": "string"
+                }
+            }
+        },
+        "request.ProblemAddParam": {
+            "type": "object",
+            "required": [
+                "content",
+                "max_mem",
+                "max_runtime",
+                "problem_categories",
+                "test_cases",
+                "title"
+            ],
+            "properties": {
+                "content": {
+                    "description": "问题内容",
+                    "type": "string"
+                },
+                "max_mem": {
+                    "description": "最大运行内存",
+                    "type": "integer"
+                },
+                "max_runtime": {
+                    "description": "最大运行时长",
+                    "type": "integer"
+                },
+                "problem_categories": {
+                    "description": "问题分类id数组",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "test_cases": {
+                    "description": "关联测试用例表",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.TestCase"
+                    }
+                },
+                "title": {
+                    "description": "问题标题",
+                    "type": "string"
+                }
+            }
+        },
+        "request.SubmitPageParam": {
+            "type": "object",
+            "required": [
+                "page",
+                "pageSize"
+            ],
+            "properties": {
+                "page": {
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "type": "integer"
+                },
+                "problemId": {
+                    "type": "integer"
+                },
+                "userId": {
+                    "type": "integer"
                 }
             }
         },
@@ -215,6 +705,38 @@
                 },
                 "url": {
                     "type": "string"
+                }
+            }
+        },
+        "vo.ProblemPageVo": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "description": "总数",
+                    "type": "integer"
+                },
+                "page_list": {
+                    "description": "分页数据",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.ProblemBasic"
+                    }
+                }
+            }
+        },
+        "vo.UserRankPageVo": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "description": "总数",
+                    "type": "integer"
+                },
+                "page_list": {
+                    "description": "分页数据",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.UserBasic"
+                    }
                 }
             }
         }

@@ -5,8 +5,8 @@ import (
 	"online-practice-system/global"
 )
 
-// @title goweb基础脚手架
-// @description goweb基础脚手架API文档
+// @title 在线练习系统
+// @description 在线练习系统API文档
 // @version 1
 //
 //go:generate swag init --parseDependency --parseInternal

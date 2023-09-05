@@ -8,9 +8,9 @@ import (
 	"go.uber.org/zap"
 	"log"
 	"net/http"
-	"online-practice-system/app/middleware"
 	_ "online-practice-system/docs"
 	"online-practice-system/global"
+	"online-practice-system/internal/middleware"
 	"online-practice-system/routes"
 	"os"
 	"os/signal"
@@ -23,6 +23,7 @@ func setupRouter() *gin.Engine {
 	if global.App.Config.App.Env == "production" {
 		gin.SetMode(gin.ReleaseMode)
 	}
+	gin.Default()
 	router := gin.New()
 	router.Use(middleware.Cors(), gin.Logger(), middleware.CustomRecovery())
 
@@ -43,6 +44,7 @@ func setupRouter() *gin.Engine {
 	routes.SetProblemGroupRoutes(apiGroup)
 	routes.SetSubmitGroupRoutes(apiGroup)
 	routes.SetCaptchaGroupRoutes(apiGroup)
+	routes.SetCategoryGroupRoutes(apiGroup)
 
 	return router
 }
