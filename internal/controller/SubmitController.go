@@ -28,7 +28,7 @@ func (submitController) GetSubmitPageList(c *gin.Context) {
 
 	// 调用service层的方法，获取分页数据
 	problemPageVo, err := service.SubmitService.GetSubmitList(query.Page, query.PageSize,
-		query.ProblemId, query.UserId)
+		query.Status)
 	if err != nil {
 		response.BusinessFail(c, err.Error())
 		return
@@ -57,10 +57,10 @@ func (submitController) SendSubmit(c *gin.Context) {
 	//获取用户邮箱
 	userMail := c.GetString("user_mail")
 	// 调用service层的方法，保存提交记录，开始判题
-	msg, err := service.SubmitService.SaveSubmitAndJudge(userId, userMail, submitSendParam)
+	submitBasic, err := service.SubmitService.SaveSubmitAndJudge(userId, userMail, submitSendParam)
 	if err != nil {
 		response.BusinessFail(c, err.Error())
 		return
 	}
-	response.Success(c, msg)
+	response.Success(c, submitBasic)
 }

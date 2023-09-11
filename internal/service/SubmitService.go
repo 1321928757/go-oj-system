@@ -23,9 +23,8 @@ type submitService struct{}
 var SubmitService = new(submitService)
 
 // 分页条件查询提交记录
-func (submitService) GetSubmitList(pageNum int, pageSize int, problemId int,
-	userId int) (submitPageVo vo.SubmitPageVo, err error) {
-	err, list, total := dao.SubmitDao.GetSubmitList(pageNum, pageSize, problemId, userId)
+func (submitService) GetSubmitList(pageNum int, pageSize int, status int) (submitPageVo vo.SubmitPageVo, err error) {
+	err, list, total := dao.SubmitDao.GetSubmitList(pageNum, pageSize, status)
 	if err != nil {
 		return
 	}
@@ -38,7 +37,7 @@ func (submitService) GetSubmitList(pageNum int, pageSize int, problemId int,
 
 // 保存代码提交并开始判题
 func (s submitService) SaveSubmitAndJudge(userId uint, userMail string,
-	param request.SubmitSendParam) (msg string, err error) {
+	param request.SubmitSendParam) (submitBasic *model.SubmitBasic, err error) {
 	// 将代码保存到本地
 	path := global.App.Config.Storage.Drivers.Local.RootDir + "/code/" +
 		userMail + "/" + str.GetUuid() + "/" + "main.go"
@@ -46,7 +45,7 @@ func (s submitService) SaveSubmitAndJudge(userId uint, userMail string,
 	File.FileSave(path, []byte(param.Code))
 
 	// 创建提交记录基本信息
-	submitBasic := &model.SubmitBasic{
+	submitBasic = &model.SubmitBasic{
 		UserId:    userId,
 		ProblemId: param.ProblemId,
 		Path:      path,
@@ -75,12 +74,12 @@ func (s submitService) SaveSubmitAndJudge(userId uint, userMail string,
 	// 答案正确的channel
 	AC := make(chan int)
 	// 非法代码的channel
-	EC := make(chan struct{})
+	EC := make(chan int)
 	// 通过的个数
 	passCount := 0
 	// 锁
 	var lock sync.Mutex
-	// 简单检测代码合法性
+	// 简单检测代码合法性（检测使用的包是否合法，防止恶意代码）
 	v, err := str.CheckGoCodeValid(path)
 	if err != nil {
 		return
@@ -89,7 +88,7 @@ func (s submitService) SaveSubmitAndJudge(userId uint, userMail string,
 	// 3. 开启协程进行判题
 	if !v {
 		// 非法代码
-		EC <- struct{}{}
+		EC <- 1
 	} else {
 		// 通过测试用例的个数
 		passCount = 0
@@ -101,29 +100,24 @@ func (s submitService) SaveSubmitAndJudge(userId uint, userMail string,
 	}
 	select {
 	case <-EC:
-		msg = "无效代码"
 		submitBasic.Status = 6
 	case <-WA:
-		msg = "答案错误"
 		submitBasic.Status = 2
 	case <-OOM:
-		msg = "运行超内存"
 		submitBasic.Status = 4
 	case <-CE:
-		msg = "编译错误"
 		submitBasic.Status = 5
 	case <-AC:
-		msg = "答案正确"
 		submitBasic.Status = 1
 	case <-time.After(time.Millisecond * time.Duration(problem.MaxRuntime)):
 		if passCount == len(problem.TestCases) {
 			submitBasic.Status = 1
-			msg = "答案正确"
 		} else {
 			submitBasic.Status = 3
-			msg = "运行超时"
 		}
 	}
+	submitBasic.PassNum = passCount
+	submitBasic.TestNum = len(problem.TestCases)
 
 	// 4. 保存提交记录,同时修改题目通过数和提交数，用户的相关信息
 	// 开启事务

@@ -157,6 +157,16 @@ definitions:
     - page
     - pageSize
     type: object
+  request.SubmitSendParam:
+    properties:
+      code:
+        type: string
+      problemId:
+        type: integer
+    required:
+    - code
+    - problemId
+    type: object
   service.TokenOutPut:
     properties:
       access_token:
@@ -319,6 +329,24 @@ paths:
       summary: 新增问题
       tags:
       - 管理员私有方法
+  /api/problem/delete:
+    delete:
+      parameters:
+      - description: 用户token
+        in: header
+        name: authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":"200","data":"删除成功"}'
+          schema:
+            type: string
+      summary: 删除问题
+      tags:
+      - 管理员私有方法
   /api/problem/detail/{id}:
     get:
       parameters:
@@ -364,6 +392,49 @@ paths:
       summary: 获取问题列表
       tags:
       - 公共方法
+  /api/problem/update:
+    put:
+      parameters:
+      - description: 用户token
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: 问题修改后的内容
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.ProblemBasic'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":"200","data":"修改成功"}'
+          schema:
+            type: string
+      summary: 修改问题
+      tags:
+      - 管理员私有方法
+  /api/submit/commit:
+    post:
+      parameters:
+      - description: 查询参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.SubmitSendParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 用户提交代码
+      tags:
+      - 用户私有方法
   /api/submit/list:
     get:
       parameters:

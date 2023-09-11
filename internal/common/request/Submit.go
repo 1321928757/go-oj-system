@@ -2,16 +2,15 @@ package request
 
 // SubmitPageParam 条件分页查询提交列表请求参数
 type SubmitPageParam struct {
-	Page      int `form:"page" binding:"required"`
-	PageSize  int `form:"pageSize" binding:"required"`
-	UserId    int `form:"userId"`
-	ProblemId int `form:"problemId"`
+	Page     int `form:"page" binding:"required"`
+	PageSize int `form:"pageSize" binding:"required"`
+	Status   int `form:"status"`
 }
 
 func (SubmitPageParam) GetMessages() ValidatorMessages {
 	return ValidatorMessages{
-		"Page.required":     "当前页数不能为空",
-		"PageSize.required": "页码大小不能为空",
+		"page.required":     "当前页数不能为空",
+		"pageSize.required": "页码大小不能为空",
 	}
 
 }
@@ -24,7 +23,7 @@ type SubmitSendParam struct {
 
 func (SubmitSendParam) GetMessages() ValidatorMessages {
 	return ValidatorMessages{
-		"ProblemId.required": "问题id不能为空",
-		"Code.required":      "提交代码不能为空",
+		"problemId.required": "提交问题id不能为空",
+		"code.required":      "提交代码不能为空",
 	}
 }

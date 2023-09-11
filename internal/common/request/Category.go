@@ -10,7 +10,7 @@ type CategoryPageParam struct {
 // GetMessages 自定义错误信息
 func (CategoryPageParam) GetMessages() ValidatorMessages {
 	return ValidatorMessages{
-		"page.required":     "当前页数不能为空",
-		"pageSize.required": "页码大小不能为空",
+		"Page.required":     "当前页数不能为空",
+		"PageSize.required": "页码大小不能为空",
 	}
 }

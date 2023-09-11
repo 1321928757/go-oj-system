@@ -60,7 +60,7 @@ func (userController) Login(c *gin.Context) {
 			return
 		}
 		//拼接token的种类与key
-		token := tokenData.TokenType + tokenData.AccessToken
+		token := tokenData.TokenType + " " + tokenData.AccessToken
 		userLoginVo := vo.UserLogineVo{
 			UserBasic: user,
 			Token:     token,

@@ -25,7 +25,7 @@ func GetUuid() string {
 	return uuid.NewV4().String()
 }
 
-// 检测go代码是否合法（主要检测import）
+// 检测go代码是否合法（主要检测import,防止使用非法包编写恶意代码）
 // CheckGoCodeValid
 // 检查golang代码的合法性
 func CheckGoCodeValid(path string) (bool, error) {

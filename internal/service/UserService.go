@@ -21,15 +21,22 @@ var UserService = new(userService)
 func (userService *userService) Register(userRegister request.UserRegister) (err error, user *model.UserBasic) {
 	// 判断邮箱是否已存在，不存在会返回err
 	err, user = dao.UserDao.GetUserByMail(userRegister.Mail)
-
+	if user.ID != 0 {
+		err = errors.New("该邮箱已被注册")
+		return
+	}
 	// 处理数据库错误,
 	if err != nil && !errors.Is(err, gorm.ErrRecordNotFound) {
 		return
 	}
-
-	// 3. 用户名已存在返回错误
+	// 判断用户名是否已存在
+	err, user = dao.UserDao.GetUserByUsername(userRegister.Username)
 	if user.ID != 0 {
-		err = errors.New("该邮箱已被注册")
+		err = errors.New("该用户名已被注册")
+		return
+	}
+	// 处理数据库错误,
+	if err != nil && !errors.Is(err, gorm.ErrRecordNotFound) {
 		return
 	}
 

@@ -95,7 +95,7 @@ func (problemController *problemController) AddProblem(c *gin.Context) {
 		return
 	}
 
-	response.Success(c, nil)
+	response.Success(c, "添加成功")
 }
 
 // UpdateProblem

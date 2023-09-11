@@ -16,7 +16,7 @@ var ProblemDao = new(problemDao)
 func (problemDao *problemDao) GetListByPage(page int, size int, keyword string, categoryName string) (
 	problemList []model.ProblemBasic, total int64, err error) {
 	// 构建基本查询
-	tx := global.App.DB.Model(&model.ProblemBasic{}).Omit("content").Offset((page-1)*size).Limit(size).
+	tx := global.App.DB.Model(&model.ProblemBasic{}).Omit("content").
 		Where("title LIKE ? OR content LIKE ?", "%"+keyword+"%", "%"+keyword+"%")
 
 	// 添加关联表查询条件
@@ -33,7 +33,7 @@ func (problemDao *problemDao) GetListByPage(page int, size int, keyword string, 
 	}
 
 	// 执行查询
-	err = tx.Preload("ProblemCategories").Preload("ProblemCategories.CategoryBasic").
+	err = tx.Offset((page - 1) * size).Limit(size).Preload("ProblemCategories").Preload("ProblemCategories.CategoryBasic").
 		Find(&problemList).Error
 	if err != nil {
 		return nil, 0, err

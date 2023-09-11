@@ -88,6 +88,8 @@ func (problemService) CreateProblem(problemAddParam request.ProblemAddParam) (er
 		return
 	}
 
+	//提交事务
+	tx.Commit()
 	return
 }
 
