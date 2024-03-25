@@ -19,7 +19,7 @@ func EmailTest(t *testing.T) {
 	email.Subject = "go邮箱发送测试"
 	email.Text = []byte("Text Body is, of course, supported!")
 	err := email.Send("smtp.qq.com:587", smtp.PlainAuth("", "1321928757@qq.com",
-		"xmysseozfhnsiieb", "smtp.qq.com"))
+		"123123", "smtp.qq.com"))
 	if err != nil {
 		fmt.Printf("发送失败: %v", err)
 		t.Error(err)
