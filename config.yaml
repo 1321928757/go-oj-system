@@ -63,10 +63,10 @@ storage: # 存储配置
       is_ssl: true
       is_private: false
     tecent_cos:
-      secret_id: xxxxx
-      secret_key: xxxxx
-      bucket_url: xxxxx
-      bucket: xxxxx
+      secret_id:
+      secret_key:
+      bucket_url:
+      bucket:
       domain: ap-chengdu
       is_ssl: true
       is_private: false
