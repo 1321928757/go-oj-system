@@ -63,18 +63,18 @@ storage: # 存储配置
       is_ssl: true
       is_private: false
     tecent_cos:
-      secret_id: AKID3zhCTVJtFMErGQLL8h071g6KMCn9dvzq
-      secret_key: iEWbVChz3vYzEAtdHK6qQoxrY5OSItGO
-      bucket_url: https://cos-1314434715.cos.ap-chengdu.myqcloud.com
-      bucket: cos-1314434715
+      secret_id: xxxxx
+      secret_key: xxxxx
+      bucket_url: xxxxx
+      bucket: xxxxx
       domain: ap-chengdu
       is_ssl: true
       is_private: false
 
 email: # 邮件配置
-  sender_name: kitie # 发件人名称
-  sender_email: 1321928757@qq.com # 发件人邮箱
-  sender_password: xmysseozfhnsiieb # 发件人密码
+  sender_name: xxxxx # 发件人名称
+  sender_email: xxxxx@qq.com # 发件人邮箱
+  sender_password: xxxxx # 发件人密码
   host: smtp.qq.com # smtp服务器地址
   port: 587 # smtp服务器端口
   max_connection: 4 # 最大并发SMTP连接数
